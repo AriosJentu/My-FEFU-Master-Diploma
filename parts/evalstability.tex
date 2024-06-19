@@ -1,0 +1,921 @@
+Основываясь на теореме \ref{thref31}, установим достаточные условия единственности и устойчивости решений конкретных экстремальных задач. Начнем с анализа следующей экстремальной задачи, отвечающей функционалу качества $I_1 (\vp) = \norm{\vp - \vp^d}^2_Q$:
+\begin{equation}
+	\label{func1}
+	\begin{split}
+		J(\vp, u) &= \frac{\mu_0}{2} I_1 (\vp) 
+		+ \frac{\mu_1}{2} \norm{\lambda}^2_{s,\Omega} 
+		+ \frac{\mu_2}{2} \norm{\beta}^2_{1,\Omega} \to \inf, \\
+		F(\vp, u, f) &= 0, ~ \pares{\vp, u} \in H^1 (\Omega) \times K.
+	\end{split}
+\end{equation} 
+Обозначим через $\pares{\vp_1, u_1}$ решение задачи (\ref{func1}), отвечающее заданным функциям $\vp^d= \vp^d_1 \in L^2(Q)$ и $f = f_1 \in L^2 (\Omega)$. 
+
+Через $\pares{\vp_2, u_2}$ обозначим решение задачи (\ref{func1}), отвечающее возмущенным функциям $\tilde \vp^d = \vp^d_2 \in L^2(Q)$ и $\tilde f = f_2 \in L^2 (\Omega)$. Полагая $\vp^d = \vp^d_1 - \vp^d_2$, в дополнение к (\ref{sign}), имеем в силу (\ref{cost_f}), что
+\begin{equation}
+	\label{func3}
+	\begin{split}
+		\vprod{I_1' (\vp_i), \tau} &= 2 \pares{\vp_i - \vp^{d}_i, \tau}_Q, \\
+		\vprod{I_1' (\vp_1) - \tilde I_1' (\vp_2), \tau} &= 2 \pares{ \pares{\vp, \tau}_Q - \pares{\vp^d, \tau}_Q }, ~ i=1, 2.  
+	\end{split}
+\end{equation}
+В силу (\ref{func3}) равенства (\ref{theta1}), (\ref{theta2})  для множителей Лагранжа $\theta_i \in {\cT}$, отвечающие решениям $(\vp_i, u_i)$,  принимают вид
+\begin{equation}
+	\label{theta3}
+	\begin{split}
+		\pares{\lambda_i \grad{\tau}, \grad{\theta_i}} 
+		&+ 3 \pares{\beta_i \vp^2_i \tau, \theta_i} 
+		+ 2 \pares{\lambda_i \abs{\vp_i} \tau, \theta_i} 
+		+ \pares{\mathbf{u} \cdot \grad{\tau}, \theta_i} + \\
+		&+ \vprod{\zeta_i, \tau}_{\Gamma_D} =
+		- \mu_0 \pares{\vp_i - \vp^d_i, \tau}_Q \quad 
+		\forall \tau \in H^1 (\Omega), ~ i=1, 2.
+	\end{split}
+\end{equation}
+
+В (\ref{thetaminus}) мы не только подставим производную Фреше от конкретного функционала качества, а также запишем это соотношение в виде уравнения относительно разности $\theta = \theta_1 - \theta_2$:
+\begin{equation}
+	\label{3.25arn}
+	\begin{split}
+		\pares{\lambda_1 \grad{\tau}, \grad{\theta}} 
+		&+ 3 \pares{\beta_2 \vp_2^2 \tau, \theta} 
+		+ \pares{\lambda_2 \abs{\vp_2} \tau, \theta}_{\Gamma_N}
+		+ \pares{\mathbf{u} \cdot \grad{\tau}, \theta} 
+		+ \vprod{\zeta, \tau}_{\Gamma_D} = \\
+		&= - 3 \pares{\beta_2 \vp \pares{\vp_1 + \vp_2} \tau, \theta_1}
+		- 3 \pares{\beta \vp_1^2 \tau, \theta_1} - \\
+		&- \pares{\lambda_2 
+			\pares{
+				\abs{\vp_1} - \abs{\vp_2}
+			} \tau, \theta_1
+		}_{\Gamma_N}
+		- \pares{\lambda \grad{\tau}, \grad{\theta_2}} 
+		- \pares{\lambda \abs{\vp_1} \tau, \theta_1}_{\Gamma_N} - \\
+		&- (\mu_0 / 2) \pares{\vp - \vp^d, \tau}_Q \quad
+		\forall \tau \in H^1 (\Omega).
+	\end{split}
+\end{equation}
+
+Наконец, (\ref{thetaminus3}) принимет следующий вид:
+\begin{equation}
+	\label{thetaminus4}
+	\mu_0 \pares{\norm{\vp}^2_Q - \pares{\vp^d, \vp}_Q } + 
+	\mu_1 \norm{\lambda}^2_{s,\Omega} + 
+	\mu_2 \norm{\beta}^2_{1,\Omega} \le A_1 + A_2 - \pares{f, \theta}.
+\end{equation}
+
+Используя оценки (\ref{varphii}) и (\ref{varphiest}), оценим множители $\theta_i$, $i=1,2$, разность $\theta = \theta_1 - \theta_2$, а также величины $A_1$ и $A_2$ в (\ref{thetaminus4}).
+
+Начнем с оценки множителя Лагранжа $\theta_i$, являющегося решением задачи (\ref{theta3}). Отметим прежде, что в силу (\ref{varphii}) и оценок $\norm{\vp_i}_Q \le \norm{\vp_i}_{1,\Omega}$, $\norm{\tau}_Q \le \norm{\tau}_{1,\Omega}$ имеем
+\begin{equation}
+	\label{fi}
+	\begin{split}
+		&\abs{ \pares{\vp_i - \vp_i^d, \tau}_Q } \le M_\vp^0 \norm{\tau}_{1, \Omega} ~ \forall \tau \in H^1_0 (\Omega), \\
+		&M_\vp^0 \equiv M_\vp + \max \pares{\norm{\vp_1^d}_Q, \norm{\vp_2^d}_Q}.
+	\end{split}
+\end{equation}
+
+Полагая $\tau =\theta_i \in {\cT}$ в (\ref{theta3}), используя (\ref{fi}) и  леммы \ref{lemm11}, выводим следующую оценку:
+\begin{equation}
+	\label{aithetaiest}
+	\norm{\theta_i}_{1,\Omega} \le C_{*} \mu_0 M_\vp^0, ~ i=1, 2. 
+\end{equation}
+
+По аналогичной схеме выводится оценка для разности $\theta = \theta_1 - \theta_2$, удовлетворяющей (\ref{3.25arn}). При этом для ее вывода достаточно оценить правую часть (\ref{3.25arn}). Используя (\ref{1.4arn}), (\ref{s1}), (\ref{varphii}), (\ref{varphiest}), (\ref{aithetaiest}) и неравенство Гельдера, имеем последовательно
+\[
+	\begin{split}
+		&\abs{\pares{\vp, \tau}_Q} \le \norm{\vp}_{1,\Omega} \norm{\tau}_{1,\Omega} 
+		\le C_{*} \pares{
+			a \norm{\lambda}_{s,\Omega} + b \norm{\beta}_{1,\Omega} + \norm{f}_\Omega
+		}
+		\norm{\tau}_{1,\Omega}, \\
+		&\abs{\pares{\vp^d, \tau}_Q} \le \norm{\vp^d}_Q \norm{\tau}_{1,\Omega},
+	\end{split}
+\]
+\[
+	\begin{split}
+		3 \abs{ 
+			\pares{\beta_2 \vp \pares{\vp_1 + \vp_2} \tau, \theta_1} 
+		} &\le 
+			3 \norm{\beta_2}_{L^6 (\Omega)} 
+			\norm{\vp_1 + \vp_2}_{ L^6 (\Omega)} 
+			\norm{\vp}_{ L^6 (\Omega)} 
+			\norm{\theta_1}_{ L^6 (\Omega)} 
+			\norm{\tau}_{ L^6 (\Omega)} 
+		\le \\
+		&\le  
+			6 C^5_6 
+			\norm{\vp_i}_{1, \Omega} 
+			\norm{\theta_1}_{1, \Omega} 
+			\norm{\vp}_{1, \Omega} 
+			\norm{\tau}_{1, \Omega} 
+		\le \\
+		&\le
+			6 C^5_6 C_\beta C^2_{*} 
+			\mu_0 
+			M_\vp M_\vp^0 
+			\pares{
+				a \norm{\lambda}_{s,\Omega} 
+				+ b \norm{\beta}_{1,\Omega} 
+				+ \norm{f}_\Omega 
+			} 
+			\norm{\tau}_{1, \Omega},
+	\end{split}
+\]
+\[
+	\begin{split}
+		3 \abs{\pares{\beta \vp^2_1 \tau, \theta_1}} &\le 
+			3 \norm{\beta}_{L^6 (\Omega)} 
+			\norm{\vp_1}^2_{ L^6 (\Omega)} 
+			\norm{\theta_1}_{ L^6 (\Omega)} 
+			\norm{\tau}_{ L^6 (\Omega)} 
+		\le \\
+		&\le 
+			3 C_6^5 
+			\norm{\beta}_{1, \Omega} 
+			\norm{\vp_1}^2_{1, \Omega} 
+			\norm{\theta_1}_{1, \Omega} 
+			\norm{\tau}_{1, \Omega} 
+		\le \\
+		&\le
+			3 C_6^5 C_{*} 
+			\mu_0 
+			M_\vp^0 M_\vp^2 
+			\norm{\beta}_{1,\Omega} 
+			\norm{\tau}_{1, \Omega},
+	\end{split}
+\]
+\[
+	\begin{split}
+		\abs{
+			\pares{\lambda_2 
+				\pares{ \abs{\vp_1} - \abs{\vp_2} } 
+				\tau, \theta_1
+			}_{\Gamma_N} 
+		} &\le 
+			\gamma_q C_\lambda 
+			\norm{\vp}_{L^4(\Gamma_N)} 
+			\norm{\tau}_{1,\Omega}
+			\norm{\theta_1}_{1,\Omega} 
+		\le \\
+		&\le 
+			\mu_0 \gamma_q 
+			C_{*}^2 \tilde C_4 
+			C_\lambda M_\vp^0 
+			\pares{
+				a \norm{\lambda}_{s,\Omega} 
+				+ b \norm{\beta}_{1,\Omega} 
+				+ \norm{f}_\Omega
+			}
+			\norm{\tau}_{1,\Omega},
+	\end{split}
+\]
+\[
+	\abs{
+		\pares{
+			\lambda \grad{\tau}, \grad{\theta_2}
+		}
+	} \le 
+		C_0 
+		\norm{\lambda}_{s,\Omega}
+		\norm{\theta_2}_{1,\Omega} 
+	\le 
+		C_0 C_{*} 
+		\mu_0 M_\vp^0 
+		\norm{\lambda}_{s,\Omega},
+\]
+\[
+	\abs{\pares{\lambda \abs{\vp_1} \tau, \theta_1}_{\Gamma_N}} 
+	\le 
+	\mu_0 \gamma_q 
+	C_{*}\tilde C_4 
+	M_\vp^0 M_\vp 
+	\norm{\lambda}_{s,\Omega}.
+\]
+
+Рассуждая, как при выводе оценки (\ref{aithetaiest}) для решения задачи (\ref{theta3}), заключаем, что для (единственного) решения $\theta$ задачи (\ref{3.25arn}) справедлива оценка
+\begin{equation}
+	\label{3.25brn}
+	\norm{\theta}_{1,\Omega} 
+	\le  
+		\mu_0 
+		\pares{
+			\alpha_1 \norm{\lambda}_{s,\Omega} 
+			+ \alpha_2 \norm{\beta}_{1,\Omega} 
+			+ \alpha_3 \norm{f}_\Omega 
+			+ \norm{\vp^d}_Q 
+		}.
+\end{equation}
+Здесь константы $\alpha_1$, $\alpha_2$ и $\alpha_3$ определяются следующими формулами:
+\begin{equation}
+	\label{3.25crn}
+	\begin{split}
+		\alpha_1 &= C_{*} a 
+		+ 6 C_6^5 C_\beta C_{*}^2 
+			M_\vp M_\vp^0 a 
+		+ C_6^5 C_{*} 
+			M_\vp^0 M_\vp^2 + \\ 
+		&+ \gamma_q 
+			C_{*}^2 \tilde C_4 C_\lambda 
+			M_\vp^0 a
+		+ \gamma_q 
+			C_{*} \tilde C_4 
+			M_\vp^0 M_\vp, \\
+		\alpha_2 &= C_{*} b 
+		+ 6 C_6^5 C_\beta C_{*}^2 
+			M_\vp M_\vp^0 b 
+		+ 3 C_6^5 C_{*} 
+			M_\vp^0 M_\vp^2, \\
+		\alpha_3 &= C_{*} 
+		+ 6 C^5_6 C_\beta C^2_{*} 
+			\mu_0 M_\vp M_\vp^0 
+		+ \gamma_q 
+			C_{*}^2 \tilde C_4 C_\lambda 
+			M_\vp^0.
+	\end{split}
+\end{equation}
+%TODO
+
+Используя оценки (\ref{varphii}), (\ref{varphiest}), (\ref{aithetaiest}) и (\ref{3.25brn}), оценим теперь слагаемые, входящие в выражение для величин $A_1$ и $A_2$ в (\ref{thetaminus3}). Учитывая (\ref{s1}),  оценки (\ref{1.4arn}), (\ref{s2}) и неравенство Юнга $2 ab \le \varepsilon a^2 + (1/ \varepsilon) b^2$ для $a \ge 0$, $b \ge 0$, $\varepsilon >0$, сначала оценим по очереди каждое слагаемое, входящее в $A_1$:
+\begin{equation}
+	\label{3.16arn}
+	\begin{split}
+		&\abs{3 
+			\pares{
+				\beta_2 \pares{\vp_1 + \vp_2} 
+				\vp^2, \theta_1
+			}
+		} 
+		\le 
+			6 \norm{\beta_2}_{L^6 (\Omega)} 
+			\norm{\vp_i}_{L^6 (\Omega)} 
+			\norm{\theta_1}_{L^6 (\Omega)}  
+			\norm{\vp}_{L^6 (\Omega)}^2 
+		\le \\
+		&\quad\le 
+			18 \mu_0 
+			C_6^5 C_{*} ^3 C_\beta 
+			M_\vp M_\vp^0    
+			\pares{ 
+				a^2 \norm{\lambda}_{s,\Omega}^2 
+				+ b^2 \norm{\beta}_{1,\Omega}^2 
+				+ \norm{f}_\Omega^2 
+			}.
+	\end{split}
+\end{equation}
+\begin{equation}
+	\label{3.17arn}
+	\begin{split}
+		&\abs{ 
+			\pares{
+				\beta_2 \pares{\vp_1^2 + \vp_1 \vp_2 - 2 \vp_2^2} 
+				\vp, \theta
+			}
+		} 
+		\le \\
+		&\quad\le 
+			4 \norm{\beta_2}_{L^6(\Omega)} 
+			\norm{\vp_i}_{L^6 (\Omega)}^2 
+			\norm{\vp}_{L^6 (\Omega)} 
+			\norm{\theta}_{L^6 (\Omega)} 
+		\le \\
+		&\quad\le 
+			4 \mu_0 
+			C_6^5 C_\beta 
+			M_\vp^2 
+			\pares{ 
+				a \norm{\lambda}_{s,\Omega}
+				+ b \norm{\beta}_{1,\Omega} 
+				+ \norm{f}_\Omega 
+			} \\
+			&\quad \pares{
+				\alpha_1 \norm{\lambda}_{s,\Omega} 
+				+ \alpha_2 \norm{\beta}_{1,\Omega} 
+				+ \alpha_3 \norm{f}_\Omega 
+				+ \norm{\vp^d}_Q
+			}
+		\le \\
+		&\quad\le 
+			4 \mu_0 
+			C_{*} C_6^5 C_\beta 
+			M_\vp^2
+			\bracks{
+				\pares{
+					a \alpha_1 
+					+ 1.5 a^2 
+					+ \alpha_1^2
+				} \norm{\lambda}_{s,\Omega}^2 + \right. \\
+				&\quad\left. + \pares{
+					b \alpha_2 
+					+ 1.5 b^2 
+					+ \alpha_2^2
+				} \norm{\beta}_{1,\Omega}^2
+		 		+ \pares{
+		 			\alpha_3^2
+		 			+ \alpha_3 
+		 			+ 1.5
+		 		} \norm{f}_\Omega^2
+		 		+ 1.5 \norm{\vp^d}_Q^2
+			}.
+	\end{split}
+\end{equation}
+\begin{equation}
+	\label{3.21arn}
+	\begin{split}
+		&\abs{ \pares{\beta \vp_2^3, \theta} } 
+		\le 
+			\norm{\beta}_{L^6(\Omega)} 
+			\norm{\vp_2}^3_{L^6(\Omega)} 
+			\norm{\theta}_{L^6(\Omega)} 
+		\le \\
+		&\quad\le 
+			\mu_0 
+			C_6^5 
+			M_\vp^3 
+			\norm{\beta}_{1,\Omega}  
+			\pares{
+				\alpha_1 \norm{\lambda}_{s,\Omega} 
+				+ \alpha_2 \norm{\beta}_{1,\Omega} 
+				+ \alpha_3 \norm{f}_\Omega 
+				+ \norm{\vp^d}_Q
+			} 
+		\le \\
+		&\quad\le 
+			\mu_0 
+			C_6^5 
+			M_\vp^3
+			\pares{ 
+				0.5 \alpha_1^2 
+				\norm{\lambda}_{s,\Omega}^2 
+				+ \pares{\alpha_2 + 1.5} 
+				\norm{\beta}_{1,\Omega}^2 
+				+ 0.5 \alpha_3^2 
+				\norm{f}_\Omega^2 + \right. \\
+				&\quad\left. + 0.5 
+				\norm{\vp^d}_Q^2
+			},
+	\end{split}
+\end{equation}
+\begin{equation}
+	\label{3.22arn}
+	\begin{split}
+		&\abs{
+			\pares{
+				\beta \vp \pares{\vp_1 \vp_2 + \vp_2^2 - 2 \vp_1^2}, \theta_1
+			}
+		} \le 
+			\mu_0 
+			C_{*}^2 C_6^5 
+			M_\vp^2 M_\vp^0 
+			\norm{\beta}_{1, \Omega} \\
+			&\quad\pares{
+				a \norm{\lambda}_{s,\Omega} 
+				+ b \norm{\beta}_{1,\Omega} 
+				+ \norm{f}_\Omega 
+			} 
+		\le \\
+		&\quad\le 
+			\mu_0 
+			C_{*}^2 C_6^5 
+			M_\vp^2 M_\vp^0
+			\pares{
+				0.5 a^2 
+				\norm{\lambda}_{s,\Omega}^2 
+				+ (b + 1) 
+				\norm{\beta}_{1, \Omega}^2 
+				+ 0.5 \norm{f}_\Omega^2 
+			}.
+	\end{split}
+\end{equation}
+
+Далее оценим каждое слагаемое, входящее в $A_2$:
+\begin{equation}
+	\begin{split}
+		&\abs{
+			\pares{
+				\lambda_2 
+				\pares{\abs{\vp_1} - \abs{\vp_2}
+			} 
+			\vp, \theta_1
+		}_{\Gamma_N}} 
+		\le 
+			\mu_0 \gamma_q 
+			C_{*} C_\lambda \tilde C_4 
+			M_\vp^0 
+			\norm{\vp}^2_{1,\Omega} 
+		\le \\
+		&\quad\le 
+			\mu_0 \gamma_q 
+			C_{*}^3 C_\lambda \tilde C_4 
+			M_\vp^0
+			\pares{
+				3a^2 
+				\norm{\lambda}_{s,\Omega}^2 
+				+ 3 b^2 
+				\norm{\beta}_{1,\Omega}^2 
+				+ 3 \norm{f}_\Omega^2
+			};
+	\end{split}
+\end{equation}
+\begin{equation}
+	\begin{split}
+		&\abs{
+			\pares{
+				\lambda_2 
+				\pares{\abs{\vp_2} - \abs{\vp_1}} 
+				\vp_1, \theta
+			}_{\Gamma_N}
+		} 
+		\le
+			\gamma_q 
+			C_\lambda \tilde C_4
+			M_\vp 
+			\norm{\vp}_{1,\Omega} 
+			\norm{\theta}_{1,\Omega} 
+		\le \\
+		&\quad\le 
+			\mu_0 \gamma_q 
+			C_\lambda \tilde C_4 C_{*} 
+			M_\vp   
+			\pares{ 
+				a \norm{\lambda}_{s,\Omega}
+				+ b \norm{\beta}_{1,\Omega} 
+				+ \norm{f}_\Omega 
+			} \\
+			&\quad \pares{
+				\alpha_1 \norm{\lambda}_{s,\Omega} 
+				+ \alpha_2 \norm{\beta}_{1,\Omega} 
+				+ \alpha_3 \norm{f}_\Omega 
+				+ \norm{\vp^d}_Q
+			}  
+		\le \\
+		&\quad\le 
+			\mu_0 \gamma_q 
+			C_\lambda \tilde C_4 C_{*}
+			M_\vp   
+			\pares{ 
+				\pares{
+					a \alpha_1 
+					+ \alpha_1^2 
+					+ 1.5 a^2
+				}
+				\norm{\lambda}_{s,\Omega}^2 + \right. \\
+				&\quad\left. + \pares{
+					b \alpha_2 
+					+ \alpha_2^2 
+					+ 1.5 b^2 
+				}
+				\norm{\beta}_{1,\Omega}^2 
+				+ \pares{
+					\alpha_3 
+					+ \alpha_3^2
+					+ 1.5
+				}
+				\norm{f}_\Omega^2
+				+ 1.5
+				\norm{\vp^d}_Q ^2 
+			},
+	\end{split}
+\end{equation}
+\begin{equation}
+	\begin{split}
+		&\abs{ 
+			2 \pares{ \lambda \grad{\vp}, \grad{\theta_2} }
+		} \le 
+			2 C_0
+			\norm{\lambda}_{s,\Omega} 
+			\norm{\vp}_{1,\Omega} 
+			\norm{\theta_2}_{1,\Omega} 
+		\le \\
+		&\quad\le 
+			2 \mu_0 
+			C_0 C_{*}^2 
+			M_\vp^0
+			\pares{ 
+				a \norm{\lambda}_{s,\Omega}
+				+ b \norm{\beta}_{1,\Omega} 
+				+ \norm{f}_\Omega 
+			} 
+			\norm{\lambda}_{s,\Omega} 
+		\le \\
+		&\quad\le 
+			2 \mu_0 
+			C_0 C_{*}^2 
+			M_\vp^0 
+			\pares{
+				(a + 1) 
+				\norm{\lambda}_{s,\Omega}^2 
+				+ 0.5 b^2 
+				\norm{\beta}_{1,\Omega}^2 
+				+ 0.5 
+				\norm{f}_\Omega^2,
+			} 
+	\end{split}
+\end{equation}
+\begin{equation}
+	\begin{split}
+		&\abs{
+			\pares{
+				\lambda \abs{vp_1} \vp, \theta_1
+			}_{\Gamma_N}
+		} 
+		\le 
+			\mu_0 \gamma_q 
+			C_{*} \tilde C_4 
+			M_\vp^0 M_\vp \\
+			&\quad \pares{
+				(a + 1) 
+				\norm{\lambda}_{s,\Omega}^2 
+				+ 0.5 b^2 
+				\norm{\beta}_{1,\Omega}^2 
+				+ 0.5 
+				\norm{f}_\Omega^2,
+			},
+	\end{split}
+\end{equation}
+\begin{equation}
+	\begin{split}
+		&\abs{
+			\pares{\lambda \grad{\vp_2}, \grad{\theta}}
+		} 
+		\le \\
+		&\quad\le 
+			\mu_0 
+			C_0 
+			M_\vp 
+			\norm{\lambda}_{s,\Omega} 
+			\pares{
+				\alpha_1 \norm{\lambda}_{s,\Omega} 
+				+ \alpha_2 \norm{\beta}_{1,\Omega} 
+				+ \alpha_3 \norm{f}_\Omega 
+				+ \norm{\vp^d}_Q
+			} 
+		\le \\
+		&\quad\le 
+			\mu_0 
+			C_0 
+			M_\vp 
+			\bracks{
+				\pares{\alpha_1 + 1.5} 
+				\norm{\lambda}_{s,\Omega}^2 
+				+ 0.5 \alpha_2^2 
+				\norm{\beta}_{1,\Omega}^2 + \right. \\
+				&\quad\left. + 0.5 \alpha_3^2 
+				\norm{f}_\Omega^2 
+				+ 0.5 
+				\norm{\vp^d}_Q^2 
+			},
+	\end{split}
+\end{equation}
+\begin{equation}
+	\begin{split}
+		2 &\abs{ 
+			\pares{\lambda \abs{vp_1} \vp_1, \theta}_{\Gamma_N} 
+		} 
+		\le 
+			2 \mu_0 \gamma_q 
+			\tilde C_4 
+			M_\vp^2 \\
+			&\quad \bracks{
+				\pares{\alpha_1 + 1.5} 
+				\norm{\lambda}_{s,\Omega}^2 
+				+ 0.5 \alpha_2^2 
+				\norm{\beta}_{1,\Omega}^2 
+				+ 0.5 \alpha_3^2 
+				\norm{f}_\Omega^2 
+				+ 0.5 
+				\norm{\vp^d}_Q^2 
+			},
+	\end{split}
+\end{equation}
+\begin{equation}
+	\begin{split}
+		&\abs{ 
+			(\lambda \grad \vp_1, \grad  \theta) 
+		} \le 
+			\mu_0 
+			C_0 
+			M_\vp 
+			\norm{\lambda}_{s,\Omega} \\
+			&\quad \pares{
+				\alpha_1 \norm{\lambda}_{s,\Omega} 
+				+ \alpha_2 \norm{\beta}_{1,\Omega} 
+				+ \alpha_3 \norm{f}_\Omega 
+				+ \norm{\vp^d}_Q
+			} 
+		\le \\
+		&\quad\le 
+			\mu_0 
+			C_0 
+			M_\vp 
+			\bracks{
+				\pares{\alpha_1 + 1.5} 
+				\norm{\lambda}_{s,\Omega}^2 
+				+ 0.5 \alpha_2^2 
+				\norm{\beta}_{1,\Omega}^2 + \right. \\
+				&\quad \left. + 0.5 \alpha_3^2 
+				\norm{f}_\Omega^2 
+				+ 0.5 
+				\norm{\vp^d}_Q^2 
+			},
+	\end{split}
+\end{equation}
+\begin{equation}
+	\begin{split}
+		&\abs{
+			\pares{
+				\lambda \pares{
+					\vp_2 \pares{
+						\abs{vp_1} - \abs{vp_2}
+					} + \abs{vp_1}
+				} \vp, \theta_2
+			}_{\Gamma_N}
+		} 
+		\le
+			2 \mu_0 \gamma_q 
+			\tilde C_4 C_{*}^2 
+			M_\vp  M_\vp^0 \\
+			&\quad \pares{ 
+				a \norm{\lambda}_{s,\Omega}
+				+ b \norm{\beta}_{1,\Omega} 
+				+ \norm{f}_\Omega 
+			} 
+		\le \\
+		&\quad\le 
+			2 \mu_0 \gamma_q 
+			\tilde C_4 C_{*}^2 
+			M_\vp  M_\vp^0 \\
+			&\quad \pares{
+				(a + 1) 
+				\norm{\lambda}_{s,\Omega}^2 
+				+ 0.5 b^2 
+				\norm{\beta}_{1,\Omega}^2 
+				+ 0.5 
+				\norm{f}_\Omega^2,
+			}.
+	\end{split}
+\end{equation}
+
+Используя (\ref{3.16arn})--(\ref{3.22arn}), выводим для величин $A_1$ и $A_2$, определенных в (\ref{thetaminus3}), что
+\begin{equation}
+	\label{3.22anew} 
+	\abs{A_1} + \abs{A_2} \le 
+	\mu_0 
+	\pares{
+		\omega_1^2 
+		\norm{\lambda}_{s,\Omega}^2 
+		+ \omega_2^2 
+		\norm{\beta}_{1,\Omega}^2 
+		+ \omega_3^2 
+		\norm{f}_\Omega^2 
+		+ \omega_4^2 
+		\norm{\vp^d}_Q^2
+	}.
+\end{equation}
+Здесь положительные константы $\omega_i$, $i=1,2,..,4$,
+зависящие от величин $M_\vp$ и $M_\vp^0$, определяются следующими формулами:
+\begin{equation}
+	\label{beta_all} 
+	\begin{split}
+		\omega_1^2 &= 
+			12 C_6^5 C_{*}^3 C_\beta 
+			M_\vp M_\vp^0 
+			a^2 
+		+ 4 C_{*} C_6^5 C_\beta 
+			M_\vp^2 
+			\pares{a \alpha_1 + a^2 + 0.5 \alpha_1^2 } + \\
+		&+ C_6^5 
+			M_\vp^3 
+			\pares{\alpha_1 + 0.5} 
+		+ C_{*}^2 C_6^5 
+			M_\vp^2 M_\vp^0 
+			\pares{a + 0.5}, \\
+		\omega_2^2 &= 
+			12 C_6^5 C_{*} ^3 C_\beta 
+			M_\vp M_\vp^0 
+		+ 4 C_{*} C_6^5 C_\beta 
+			M_\vp^2 
+			\pares{0.5 \alpha_2^2 + \alpha_2 + 1} + \\
+		&+ 0.5 C_6^5 
+		 	M_\vp^3 
+		 	\alpha_2^2 
+	 	+ 0.5 C_{*}^2 C_6^5 
+	 		M_\vp^2 M_\vp^0, \\
+		\omega_3^2 &= 
+			4 C_{*} C_6^5 C_\beta 
+			M_\vp^2 
+		+ 0.5 C_6^5 
+			M_\vp^3.
+	\end{split}
+\end{equation}
+
+Пусть исходные данные задачи (\ref{func1}) таковы, что выполняется условие
+\begin{equation}
+	\label{3.32bnew} 
+	\mu_0 \omega_1^2 < \mu_1 \pares{1 - \varepsilon_1}, \quad 
+	\mu_0 \omega_2^2 < \mu_2 \pares{1 - \varepsilon_2},
+\end{equation}
+где $\varepsilon_1, \varepsilon_2 \in (0, 1)$ -- произвольные 
+числа. При выполнении (\ref{3.32bnew}) оценка (\ref{3.22anew}) принимает вид
+\begin{equation}
+	\label{3.22cnew} 
+	\begin{split}
+		\abs{A_1} + \abs{A_2} 
+		\le 
+			\mu_1 
+			\pares{1 - \varepsilon_1} 
+			\norm{\lambda}_{s,\Omega}^2 
+			+ \mu_2 
+			\pares{1 - \varepsilon_2} 
+			\norm{\beta}_{1,\Omega}^2 
+			+ \mu_0 
+			\pares{
+				\omega_2^2 
+				\norm{f}_\Omega^2 
+				+ \omega_3^2 
+				\norm{\vp^d}_Q^2
+			}.
+	\end{split}
+\end{equation}
+
+Используя (\ref{3.22cnew}), из неравенства (\ref{thetaminus4}) получаем
+\begin{equation}
+	\label{jvm1}
+	\mu_0 \norm{\vp}_Q^2 
+	\le 
+		\mu_0 \pares{\vp, \vp^d}_Q 
+		- \varepsilon \mu_1 
+		\norm{\beta}_{1,\Omega}^2 
+		+ \mu_0 
+		\pares{
+			\omega_2^2 \norm{f}_\Omega^2 
+			+ \omega_3^2 \norm{\vp^d}_Q^2
+		}.
+\end{equation}
+Отбрасывая неположительный член $- \varepsilon \mu_1 \norm{\beta}_{1,\Omega}^2$ в правой части, из (\ref{jvm1}) выводим, что
+\begin{equation}
+	\label{jvm2}
+	\norm{\vp}_Q^2 
+	\le 
+		\norm{\vp}_Q 
+		\norm{\vp^d}_Q 
+		+ \omega_2^2 
+		\norm{f}_\Omega^2 
+		+ \omega_3^2 
+		\norm{\vp^d}_Q^2.
+\end{equation}
+
+Неравенство (\ref{jvm2}) представляет собой квадратичное неравенство относительно $\norm{\vp}_Q$. Решив его, приходим к следующей оценке  для $\norm{\vp}_Q$: 
+\[
+	\norm{\vp}_Q 
+	\le 
+		\pares{\omega_3 + 1} 
+		\norm{\vp^d}_Q 
+		+ \omega_2 
+		\norm{f}_\Omega.
+\] 
+Поскольку $\vp = \vp_1 - \vp_2$, $\vp^d = \vp^d_1 - \vp^d_2$, $f = f_1 - f_2$, то эта оценка эквивалентна оценке 
+\begin{equation}
+	\label{jvm4}
+	\norm{\vp_1 - \vp_2}_Q 
+	\le 
+		\pares{\omega_4 + 1} 
+		\norm{\vp^d_1 - \vp^d_2}_Q 
+		+ \omega_3 
+		\norm{f_1 - f_2}_\Omega.
+\end{equation}
+
+В случае, когда $Q = \Omega$, оценка (\ref{jvm4}) имеет смысл $L^2 (\Omega)$ оценки устойчивости компоненты $\hat \vp$ решения $\pares{\hat \vp, \hat u}$ задачи (\ref{func1}) относительно малых возмущений функций $\vp^d \in L^2 (\Omega)$ и $f \in  L^2 (\Omega)$. При $f_1= f_2$ (\ref{jvm4}) переходит в оценку
+\[
+	\norm{\vp_1 - \vp_2}_Q 
+	\le 
+		\pares{\omega_4 + 1} 
+		\norm{\vp^d_1 - \vp^d_2}_Q,
+\]
+справедливую при выполнении условия (\ref{3.32bnew}). Если, кроме того, $\vp^d_1 = \vp^d_2$, то из этой оценки следует, что $\vp_1 = \vp_2$ в $Q$. Это дает вместе с (\ref{jvm1}) при $\mu_1 > 0$ и $\mu_2 > 0$, что $\lambda = 0$ и $\beta = 0$, а из (\ref{varphiest}) при $\lambda = 0$, $\beta = 0$ и $f = 0$ тогда следует, что $\vp = 0$, т.е., что $\vp_1 = \vp_2$ в $\Omega$. Последнее означает единственность решения задачи (\ref{func}) при выполнении условия (\ref{3.32bnew}).
+
+В общем случае, когда $f_1 \neq f_2$, используя неравенство 
+\[
+	\norm{\vp}_Q 
+	\norm{\vp^d}_Q 
+	\le 
+		\norm{\vp}_Q^2 
+		+ (1/4) 
+		\norm{\vp^d}_Q^2,
+\] 
+вытекающее из неравенства Юнга, из (\ref{jvm1}) выводим, что
+\begin{equation}
+	\label{jvm3.39}
+	\begin{split}
+		\varepsilon_1 \mu_1 
+		\norm{\lambda}_{s,\Omega}^2 
+		&+ \varepsilon_2 \mu_2 
+		\norm{\beta}_{1,\Omega}^2 
+		\le 
+			- \mu_0 \norm{\vp}_Q^2 
+			+ \mu_0 \pares{\vp, \vp^d}_Q + \\
+			&+ \mu_0 \pares{
+				\omega_3^2 
+				\norm{f}_\Omega^2 
+				+ \omega_4^2 
+				\norm{\vp^d}_Q^2
+			} 
+		\le \\  
+		&\le 
+			(\mu_0 /4) 
+			\norm{\vp^d}_Q^2 
+			+ \mu_0 
+			\pares{
+				\omega_3^2 
+				\norm{f}_\Omega^2 
+				+ \omega_4^2 
+				\norm{\vp^d}_Q^2
+			}.
+	\end{split}
+\end{equation}
+
+Из (\ref{jvm3.39}) вытекают оценки 
+\[
+	\begin{split}
+		&\norm{\lambda}_{s,\Omega} 
+		\le 
+			\sqrt{\mu_0 / \varepsilon_1 \mu_1} ~
+			\pares{
+				\omega_3 
+				\norm{f}_\Omega 
+				+ \pares{\omega_4 + 0.5} 
+				\norm{\vp^d}_Q
+			}, \\
+		&\norm{\beta}_{1,\Omega} 
+		\le 
+			\sqrt{\mu_0 / \varepsilon_2 \mu_2} ~ 
+			\pares{
+				\omega_3 
+				\norm{f}_\Omega 
+				+ \pares{\omega_4 + 0.5} 
+				\norm{\vp^d}_Q
+			},
+	\end{split}
+\] 
+которые с учетом (\ref{sign}) перепишем в виде
+\begin{equation}
+	\label{est_11}
+	\norm{\lambda_1 - \lambda_2}_{s, \Omega} 
+	\le 
+		\sqrt{\mu_0 / \varepsilon_1 \mu_1} ~
+		\pares{
+			\omega_3 \norm{f_1 - f_2}_\Omega 
+			+ \pares{\omega_4 + 0.5} 
+			\norm{\vp^d_1 - \vp^d_2}_Q
+		}, 
+\end{equation}
+\begin{equation}
+	\label{est_11a}
+	\norm{\beta_1 - \beta_2}_{1, \Omega}
+	\le 
+		\sqrt{\mu_0 / \varepsilon_2 \mu_2} ~ 
+		\pares{
+			\omega_3 \norm{f_1 - f_2}_\Omega 
+			+ \pares{\omega_4 + 0.5} 
+			\norm{\vp^d_1 - \vp^d_2}_Q
+		}. 
+\end{equation}
+
+Из (\ref{est_11}), (\ref{est_11a}) и (\ref{varphiest}) вытекает следующая оценка для разности $\vp_1 - \vp_2$:
+\begin{equation}
+	\label{est12}
+	\begin{split}
+		\norm{\vp_1 - \vp_2}_{1, \Omega} 
+		&\le  
+			C_{*} 
+			\pares{
+				a \omega_3 
+				\sqrt{\mu_0 / \varepsilon_1 \mu_1} 
+				+ b \omega_3 
+				\sqrt{\mu_0 / \varepsilon_1 \mu_1} 
+				+ 1
+			} \\
+			&\norm{f_1- f_2}_\Omega + \\
+		& + C_{*} 
+			\pares{\omega_4 + 0.5} 
+			\pares{
+				a \omega_3 
+				\sqrt{\mu_0 / \varepsilon_1 \mu_1} 
+				+ b \omega_3 
+				\sqrt{\mu_0 / \varepsilon_1 \mu_1}
+			} \\
+			&\norm{\vp^d_1 - \vp^d_2}_Q, 
+	\end{split}
+\end{equation} 
+где $a = C_6^3 C_4^2 M_\vp^3$, $b = C_6^3 C_4^2 M_\vp^3$.
+
+\theorem{
+	\label{thref41}
+	Пусть в дополнение к условиям (\ref{rconds1}) и \ref{jconds1} $K$ -- ограниченное множество и пусть пара $\pares{\vp_i, u_i} \in H^1 (\Omega) \times K$ является решением задачи (\ref{func1}), отвечающим заданным функциям $\vp^d_i \in L^2 (Q)$ и $f_i \in L^2 (\Omega)$, $i = 1, 2$, где $Q \subset \Omega$ -- произвольное открытое ограниченное множество. Предположим, что $\mu_0 > 0$ и выполняется условие (\ref{3.32bnew}). Тогда справедливы оценки (\ref{jvm4}), (\ref{est_11}) и (\ref{est12}), где $\omega_i$, $i = 1, 2, 3, 4$ определены в (\ref{beta_all}).
+}
+
+\consequence{
+	\label{consref41}
+	Пусть в дополнение к условиям (\ref{rconds1}) и \ref{jconds1} $K$ -- ограниченное множество, $\vp^d_1 = \vp^d_2$ в $Q$ и $f_1 = f_2$ в $\Omega$. Тогда если $\mu_0 > 0$ и выполняется условие (\ref{3.32bnew}), то решение $\pares{\vp, u} \in H^1 (\Omega) \times K$ задачи (\ref{func1}) единственно.
+}
+
+Стоит отметить, что устойчивость решения экстремальной задачи (\ref{func1}) доказана при условии, что параметр $\mu_1$ положителен и удовлетворяет условию (\ref{3.32bnew}). При фиксированных значениях параметров $\mu_0$ и $\mu_1$ это условие имеет смысл условия малости на исходные данные для задачи (\ref{func1}). Таким образом, слагаемое $(\mu_1/2) \norm{\beta}_{1,\Omega}^2$ в выражении для минимизируемого функционала $J$ в (\ref{func1}) вносит регуляризирующий эффект.

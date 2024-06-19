@@ -1,0 +1,185 @@
+Пусть функция $k(\vp, \mathbf{x})$ удовлетворяет условию
+\begin{enumerate}[(i)]
+	\setcounter{enumi}{8}
+
+	\item \label{rconds9}
+		$k(\vp, \mathbf{x}) = \beta (\mathbf{x}) k_0 (\vp)$, где $\beta (\mathbf{x}) \in H^1_+ (\Omega)$, $k_0 (\vp) \in L^2_+ (\Omega)$ для всех $\vp \in H^1 (\Omega)$, удовлетворяет свойству (\ref{rconds7}) при $p>2$ и в любом шаре $B_r = \braces{ \vp \in H^1 (\Omega): \norm{\vp}_{1,\Omega} \le r }$ радиуса $r$ справедливо неравенство:
+		\begin{equation}
+			\label{x_eq}
+			\norm{k_0 (\vp_1) - k_0 (\vp_2) }_{\Omega} 
+			\le L_3 \norm{\vp_1 - \vp_2}_{L^4 (\Omega)} 
+			\quad \forall \vp_1, \vp_2 \in B_r.
+		\end{equation}
+		Здесь константа $L_3$ зависит от радиуса $r$ и не зависит от конкретных $\vp_1, \vp_2 \in B_r$.
+
+\end{enumerate}
+
+Несложно показать, что условия (\ref{rconds9}) описывают частный случай
+функции $k(\vp, \mathbf{x})$, удовлетворяющей (\ref{rconds4}). Действительно,
+(см. также \cite{lit12}):
+\[
+	\begin{split}
+		\norm{\beta \pares{k_0 (\vp_1) - k_0 (\vp_2)}}_{L^{3/2} (\Omega)} &\le 
+		\norm{\beta}_{L^6 (\Omega)} \norm{k_0 (\vp_1) - k_0 (\vp_2)}_\Omega \le \\
+		&\le C_6 \norm{\beta}_{1,\Omega} \norm{\vp_1 - \vp_2}_{L^4(\Omega)}.
+	\end{split}
+\]
+
+Для постановки задачи управления разобьем множество исходных данных задачи 1 на две группы: группу фиксированных данных, куда отнесем функции $\mathbf{u}, k_0 (\vp), \alpha (\vp), f, \chi$ и $\psi$, и группу управлений, куда отнесем функции $\lambda$ и $\beta$, предполагая, что они могут изменяться в некоторых множествах $K_1$ и $K_2$, удовлетворяющих условию
+
+\begin{enumerate}
+
+	\item[\enumilab{jconds1}{(j)}]
+		$K_1 \subset H^{s}_{\lambda_0} (\Omega)$ и $K_2 \subset H^{1}_{+} (\Omega)$ -- непустные выпуклые замкнутые множества.
+
+\end{enumerate}
+
+Введем пространство $Y ={\cT}^{*} \times H^{1/2} (\Gamma_D)$, положим $u = (\lambda, \beta)$, $K= K_1 \times K_2$ и введем оператор $ F = (F_1, F_2): H^1 (\Omega) \times K \to Y $ по формулам:
+\[
+	\begin{split}
+		\vprod{F_1 (\vp, u), h} &= 
+		\pares{\lambda \grad{\vp}, \grad{h}} + \pares{\beta (\mathbf{x}) k_0 (\vp) \vp, h} +
+		\pares{\mathbf{u} \cdot \grad{\vp}, h} + \\
+		&+ \pares{\lambda \alpha (\vp, \mathbf{x}) \vp, h}_{\Gamma_N} -
+		\pares{f, h} - \pares{\chi, h}_{\Gamma_N},
+	\end{split}
+\]
+\[
+	F_2 (\vp) = \vp\ont_{\Gamma_D} - \psi
+\]
+и перепишем (\ref{2.4a}) в виде $F (\vp, u) = 0$. Рассматривая это равенство как условное ограничение на состояние $\vp \in H^1 (\Omega)$ и управление $u \in K$, сформулируем следующую задачу условной минимизации:
+\begin{equation}
+	\label{3.1}
+	\begin{split}
+		J \pares{\vp, u} &\equiv \frac{\mu_0}{2} I \pares{\vp} 
+		+ \frac{\mu_1}{2} \norm{\lambda}^2_{s,\Omega} 
+		+ \frac{\mu_2}{2} \norm{\beta}^2_{1,\Omega} \rightarrow \inf, ~ \\
+		F \pares{\vp, u} &= 0, ~ \pares{\vp, u} \in H^1 (\Omega) \times K.
+	\end{split}
+\end{equation}
+Здесь $I: H^1 (\Omega) \to \R$ -- функционал, полунепрерывный снизу относительно слабой сходимости.
+
+Обозначим через 
+$Z_{ad} = \braces{ \pares{\vp, u} \in H^1 (\Omega) \times K: F (\vp, u) = 0, J(\vp, u)< \infty }$ множество допустимых пар для задачи (\ref{3.1}) и предположим, что выполняется условие
+
+\begin{enumerate}
+
+	\item[\enumilab{jconds2}{(jj)}]
+		$\mu_0 >0$, $\mu_1 \ge 0$, $\mu_2 \ge 0$  и $K$ -- ограниченное множество, либо $\mu_i > 0$, $i = 0,1,2$ и функционал $I$ ограничен снизу.
+
+\end{enumerate}
+
+Будем использовать следующие функционалы качества: 
+\begin{equation}
+	\label{cost_f}
+	I_1 (\vp) = \norm{\vp - \vp^d}^2_Q = 
+	\int_Q \abs{\vp - \vp^d}^2 d \mathbf{x}, \quad 
+	I_2 (\vp) = \norm{\vp - \vp^d}_{1,Q}^2.
+\end{equation}
+Здесь $\vp^d \in L^2 (Q)$ (либо $\vp^d \in H^1 (Q)$) -- заданная в подобласти $Q \subset \Omega$ функция.
+
+\theorem{
+	\label{thref21}
+	Пусть выполнены условия (\ref{rconds1})--(\ref{rconds8}), (\ref{rconds9}) и \ref{jconds1}, \ref{jconds2}, функционал $I:  H^1 (\Omega) \to \R$ слабо полунепрерывен снизу и множество $Z_{ad}$ не пусто. Тогда существует по крайней мере одно  решение $\pares{\vp, u} \in H^1 (\Omega) \times K$ задачи (\ref{3.1}).
+}
+
+\remark{
+	Функционалы в (\ref{cost_f}) удовлетворяют условиям теоремы \ref{thref21}. Также в дальнейшем будем использовать оценки, вытекающие из условий теоремы \ref{thref21}:
+	\begin{equation}
+		\label{cbeta}
+		\norm{\lambda}_{s,\Omega} \le C_\lambda ~ \forall \lambda \in K_1, ~
+		\norm{\beta}_{1,\Omega} \le C_\beta ~ \forall \beta \in K_2, 
+	\end{equation}
+	где $C_\lambda$ и $C_\beta$ -- положительные константы.
+}
+
+Следующим этапом в исследовании экстремальной задачи (\ref{3.1}) является вывод системы оптимальности, которая дает ценную информацию о дополнительных свойствах оптимальных решений. Далее на основе ее анализа для конкретного коэффициента реакции 
+$k(\vp, \mathbf{x}) = 
+	\beta_0 (\mathbf{x}) k_0 (\vp) \equiv 
+	\beta_0 (\mathbf{x}) \vp^2
+$ и коэффициента массобмена $\alpha (\vp) = \abs{\vp}$, а также для конкрентных функционалов качества будут получены оценки локальной устойчивости оптимальных решений задачи (\ref{3.1}) относительно малых возмущений, как функционалов качества, так и заданной функциий $f$.
+
+Несложно показать, что производная Фреше от оператора 
+$ F = (F_1,F_2): H^1 (\Omega) \times K \to Y $ 
+по $\vp$ в каждой точке 
+$(\hat \vp, \hat u) = (\hat \vp, \hat \lambda, \hat \beta)$ 
+есть линейный оператор 
+$F'_\vp (\hat \vp, \hat u): H^1 (\Omega) \to Y$, 
+ставящий в соответствие каждому элементу $h \in H^1 (\Omega)$ элемент 
+$F'_\vp (\hat \vp, \hat u)(h) = (\hat y_1, \hat y_2) \in Y$. 
+Здесь элементы 
+$\hat y_1 \in {\cT}^*$ и $\hat y_2 \in H^{1/2} (\Gamma_D)$ 
+определяются по $\hat \vp$ и $\tau$ соотношениями
+
+\begin{equation}
+	\label{os1}
+	\begin{split}
+		\vprod{\hat y_1, \tau} &= 
+		\pares{\hat \lambda  \grad{\tau}, \grad{h}} + 3 \pares{\hat \beta \hat \vp^2 \tau, h} + 
+		\pares{\hat \lambda \abs{\hat \vp} \tau, h}_{\Gamma_N} +
+		\pares{\mathbf{u} \cdot \grad{\tau}, h} ~ \forall \tau \in H^1 (\Omega), \\
+		y_2 &= h\ont_{\Gamma_D}.
+	\end{split}
+\end{equation}
+Введем сопряженное к $Y$ пространство $Y^{*} = {\cT} \times H^{1/2} (\Gamma_D)^{*}$. Через $F'_\vp (\hat \vp, \hat u)^{*}: Y^{*} \to H^1 (\Omega)^{*}$ обозначим сопряженный к $F'_\vp (\hat \vp, \hat u)$ оператор.
+
+Следуя общей теории гладко-выпуклых экстремальных задач \cite{lit21}, введем элемент $\mathbf{y}^{*} = \pares{\theta, \zeta} \in Y^{*}$, на который будем ссылаться как на сопряженное состояние, и введем Лагранжиан $\Lg: H^1 (\Omega) \times K \times Y^{*} \to \R$ по формуле
+\begin{equation}
+	\label{Lagran}
+	\begin{split}
+		\Lg(\vp, u, \mathbf{y}^{*}) &= J(\vp, u) 
+		+ \vprod{\mathbf{y}^{*}, F(\vp, u)}_{Y^{*} \times Y} 
+		\equiv J(\vp, u) 
+		+ \vprod{F_1(\vp, u), \theta}_{\cT^{*} \times \cT} + \\
+		&+ \vprod{\zeta, F_2(\vp, u)}_{\Gamma_D},
+	\end{split}
+\end{equation}
+где 
+$\vprod{\zeta, \cdot}_{\Gamma_D} = \vprod{\zeta, \cdot}_{H^{1/2}(\Gamma_D)^{*} \times H^{1/2}(\Gamma_D)}$.
+
+Из теоремы Лакса-Мильграма вытекает, что для любых $f \in L^2 (\Omega)$ и $\psi \in H^{1/2} (\Gamma_D)$ существует единственное решение $\tau \in H^1 (\Omega)$ линейной задачи 
+\begin{equation}
+	\label{LinPr}
+	\pares{\hat \lambda \grad{\tau}, \grad{h}} 
+	+ 3 \pares{\hat \beta \hat \vp \tau, h} 
+	+ \pares{\hat \lambda \abs{\hat \vp} \tau, h}_{\Gamma_N} 
+	+ \pares{\mathbf{u} \cdot \grad{\tau}, h} = \pares{f, h} ~ \forall h \in \cT, ~
+	\tau\ont_{\Gamma_D} = \psi.
+\end{equation}
+Тогда оператор $F'_\vp (\hat \vp, \hat u) : H^1 (\Omega) \times K \to Y$ -- изоморфизм, а из \cite{lit21} вытекает
+
+\theorem{
+	\label{thref22}
+	Пусть выполняются условия (\ref{rconds1}), (\ref{rconds2}), и \ref{jconds1}, \ref{jconds2}, $k(\vp, \cdot) = \beta (\cdot) \vp^2$, где $\beta(\cdot) \in H^1_+ (\Omega)$, и $\alpha (\vp) = \abs{\vp}$, функционал $I: H^1 (\Omega) \to \R$ непрерывно дифференцируем по $\vp$ в точке $\hat \vp$ и локальный минимум в задаче (\ref{3.1}) достигается в точке $(\hat \vp, \hat u) \in H^1 (\Omega) \times K$. Тогда существует единственный множитель Лагранжа $\mathbf{y}^{*} = \pares{\theta, \zeta} \in Y^{*}$ такой, что выполняется уравнение Эйлера--Лагранжа $F_\vp' (\hat \vp, \hat u)^{*} \mathbf{y}^{*} = - J_\vp' (\hat \vp,\hat u) \text{ в } H^1 (\Omega)^{*}$, эквивалентное тождеству
+	\begin{equation}
+		\label{su}
+		\begin{split}
+			\pares{ \hat \lambda \grad{\tau}, \grad{\theta} }
+			&+ 3 \pares{ \hat \beta ~ \hat \vp^2 \tau, \theta } 
+			+ 2 \pares{ \hat \lambda ~ \abs{\hat \vp} \tau, \theta }_{\Gamma_N} 
+			+ \pares{\mathbf{u} \cdot \grad{\tau}, \theta} 
+			+ \vprod{\zeta, \tau}_{\Gamma_D}  = \\
+			&= - (\mu_0 /2) \vprod{I'_\vp (\hat \vp), \tau} 
+			\quad \forall \tau \in H^1 (\Omega),
+		\end{split}
+	\end{equation}
+	и справедлив принцип минимума
+	$\Lg \pares{\hat \vp, \hat u, \mathbf{y}^{*}} \le \Lg \pares{\hat \vp, u, \mathbf{y}^{*}} ~ \forall u \in K$, эквивалетный неравенствам
+	\begin{equation}
+		\label{5a}
+		\mu_1 \pares{\hat \lambda, \lambda - \hat \lambda}_{s,\Omega} 
+		+ \pares{ 
+			\pares{\lambda - \hat \lambda} \grad{\hat \vp}, \grad{\theta}
+		} + \pares{
+			\pares{\lambda - \hat \lambda} \abs{\hat \vp}y \hat \vp, \theta
+		}_{\Gamma_N} \ge 0 ~ \forall \lambda \in K_1,
+	\end{equation}
+	\begin{equation}
+		\label{5b}
+		\mu_2 \pares{\hat \beta, \beta - \hat \beta}_{1,\Omega} 
+		+ \pares{
+			\pares{\beta - \hat \beta} \hat \vp^2, \theta
+		} \ge 0 
+		\quad \forall \beta \in K_2.
+	\end{equation}
+}

@@ -1,0 +1,93 @@
+\documentclass[14pt, a4paper, fleqn]{extarticle}
+\usepackage{styles/style}
+\usepackage{styles/titlepage}
+\usepackage{styles/symbols}
+
+\begin{document}
+	
+	\setcounter{page}{-1}
+
+	%---------------------------------------------------------------------------
+
+	\input{parts/titlepagevkr.tex}
+	\input{parts/otherside.tex}
+	% \input{parts/titlepagepractice.tex}
+
+	%---------------------------------------------------------------------------
+
+	\section*{\center{Аннотация}}
+	\addcontentsline{toc}{section}{Аннотация}
+	
+	\thispagestyle{empty}
+	\input{parts/annotation.tex}
+	
+	\maketoc
+
+	%---------------------------------------------------------------------------
+
+	\pagebreak
+
+	\section{Введение}
+	\input{parts/introduction.tex}
+
+	\pagebreak
+
+	\section{Постановка и разрешимость краевой задачи}
+	\input{parts/problem.tex}
+
+	\pagebreak
+	
+	\section{Мультипликативная задача управления}
+	\input{parts/control.tex}
+
+	\pagebreak
+	
+	\section{Основное свойство системы оптимальности}
+	\input{parts/optimal.tex}
+
+	\pagebreak
+
+	\section{Оценки локальной устойчивости оптимальных решений}
+	\input{parts/evalstability.tex}
+
+	\pagebreak
+
+	\section{Численный эксперимент}
+	\input{parts/numerical.tex}
+
+
+	%---------------------------------------------------------------------------
+
+	\pagebreak
+
+	\section*{\center{Заключение}}
+	\addcontentsline{toc}{section}{Заключение}
+	\input{parts/conclusion.tex}
+
+	%---------------------------------------------------------------------------
+
+	\pagebreak
+
+	\section*{\center{Приложение}}
+	\addcontentsline{toc}{section}{Приложение}
+	\input{parts/addition.tex}
+
+	%---------------------------------------------------------------------------
+
+	\pagebreak
+
+	%\section*{Список литературы.}
+	\renewcommand{\refname}{\centering Список литературы}
+	\addcontentsline{toc}{section}{Список литературы}
+	\input{parts/bibliography.tex}
+
+
+	%---------------------------------------------------------------------------
+
+	% \pagebreak
+
+	% \section*{\center{Приложение}}
+	% \addcontentsline{toc}{section}{Приложение}
+	% \input{parts/appendix.tex}
+
+\end{document}

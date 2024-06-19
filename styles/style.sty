@@ -1,0 +1,124 @@
+\RequirePackage{xltxtra}
+\RequirePackage{polyglossia}
+\RequirePackage{xecyr}
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{geometry}
+\RequirePackage{enumerate}
+\RequirePackage{float}
+\RequirePackage{multicol}
+
+\RequirePackage{fancyhdr}
+
+\RequirePackage{titlesec}
+\RequirePackage{titletoc}
+\RequirePackage[linktoc=all]{hyperref}
+
+\RequirePackage{cite}
+
+% Sections font size
+\titleformat*{\section}{\fontsize{14pt}{16pt} \selectfont \bfseries}
+\titleformat*{\subsection}{\fontsize{14pt}{16pt} \selectfont \bfseries}
+
+% Page numbering
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyheadoffset{0mm}
+\fancyfootoffset{0mm}
+\setlength{\headheight}{17pt}
+
+% Side page margins
+\geometry{left=3cm}
+\geometry{right=1.5cm}
+\geometry{top=2cm}
+\geometry{bottom=2cm}
+
+% Indentations
+\parindent 1.25cm
+\linespread{1.25}
+
+% Config main language
+\setmainlanguage{russian}
+\setdefaultlanguage{russian}
+\SetLanguageKeys{russian}{indentfirst=true}
+
+% Configure font
+% \setmainfont{Georgia}
+\setmainfont{Times New Roman}
+\setsansfont{Courier New}
+% \setmonofont{Droid Sans Mono}
+% \setsansfont{Droid Sans}
+% \newfontfamily\cyrillicfont{Georgia}
+
+% Table of contents
+\dottedcontents{section}[1.7em]{}{1.7em}{1pc}
+\dottedcontents{subsection}[2.5em]{}{2.5em}{1pc}
+\setcounter{tocdepth}{2}
+
+\newcommand{\maketoc}{
+	\renewcommand{\contentsname}{\centering Оглавление}
+	\thispagestyle{empty}
+	\tableofcontents
+	\pagebreak
+}
+
+%Equation
+\numberwithin{equation}{section}
+
+%Custom labeling enumerators
+\newcommand{\enumilab}[2]{#2\def\@currentlabel{#2}\label{#1}} 
+
+%Definitions, lemmas and theorems
+\newcounter{defcounter}
+\counterwithin{defcounter}{section}
+\newcommand{\definition}[1]{
+  
+  \refstepcounter{defcounter}
+  \textbf{Определение \thedefcounter.} 
+  \textit{#1} 
+
+}
+
+\newcounter{lemmcounter}
+\counterwithin{lemmcounter}{section}
+\newcommand{\lemma}[1]{
+  
+  \refstepcounter{lemmcounter}
+  \textbf{Лемма \thelemmcounter.} 
+  \textit{#1} 
+
+}
+
+\newcounter{theorcounter}
+\counterwithin{theorcounter}{section}
+\newcommand{\theorem}[1]{
+  
+  \refstepcounter{theorcounter}
+  \textbf{Теорема \thetheorcounter.} 
+  \textit{#1} 
+
+}
+
+\newcounter{remarkcounter}
+\counterwithin{remarkcounter}{section}
+\newcommand{\remark}[1]{
+  
+  \refstepcounter{remarkcounter}
+  \textbf{Замечание \theremarkcounter.} 
+  #1 
+
+}
+
+\newcounter{conseqcounter}
+\counterwithin{conseqcounter}{section}
+\newcommand{\consequence}[1]{
+  
+  \refstepcounter{conseqcounter}
+  \textbf{Следствие \theconseqcounter.} 
+  #1 
+
+}

@@ -1,0 +1,246 @@
+В данной работе исследуется двухпараметрическая задача мультипликативного управления для нелинейного уравнения 
+реакции--диффузии--конвекции, рассматриваемого в ограниченной области $\Omega \subset \R^3$: 
+\begin{equation}
+	\label{4a}
+		- \div{(\lambda(\mathbf{x}) \grad{\vp})} 
+		+ \mathbf{u} \cdot \grad{\vp}
+		+ k (\vp, \mathbf{x}) \vp 
+		= f \text{ в } \Omega, 
+\end{equation}
+Предполагается, что  граница $\Gamma$ области $\Omega$ состоит из двух частей $\Gamma_D$ и $\Gamma_N$ и уравнение (\ref{4a}) рассматривается при смешанных краевых условиях:
+\begin{equation}
+	\label{4}
+		\vp = \psi \text{ на } \Gamma_D, ~
+		\lambda (\mathbf{x}) 
+		\left( \partial \vp / \partial n + \alpha(\vp, \mathbf{x})\vp \right)
+		=\chi \text{ на } \Gamma_N.
+\end{equation}
+Здесь функция $\vp$ имеет смысл концентрации загрязняющего вещества, $\mathbf{u}$ -- заданный вектор скорости,  $f$ -- объемная плотность внешних источников вещества, $\lambda (\mathbf{x})$ -- коэффициент диффузии, $k(\vp, \mathbf{x})$ -- коэффициент реакции, $\alpha(\vp, \mathbf{x})$ -- коэффициент массобмена, функция $\chi$ имеет смысл плотности граничных источников. Ниже на задачу (\ref{4a}), (\ref{4}) при заданных функциях $\lambda, k, f, \alpha, \chi$ и $\psi$ будем ссылаться как на задачу 1.
+%${\bf x} \in \overline \Omega$,
+
+В \cite{lit15} доказана глобальная разрешимость задачи 1 при условии, что нелинейности, порождаемые зависимыми от решения коэффициентами, являются монотонными. При этом условии имеет место нелокальная единственность решения задачи 1, а также удается установить принцип максимума и минимума для концентрации $\vp$.
+
+Для задачи 1 в \cite{lit15} была сформулирована задача мультипликативного управления для коэффициента реакции, имеющего вид произведения: $k(\vp, \mathbf{x}) = \beta(\mathbf{x}) k_0 (\vp)$. Функция $\beta(\mathbf{x})$ играла роль одного из мультипликативных управлений. Другим управлением был коэффициент диффузии $\lambda (\textbf{x})$. Разрешимость задачи управления, как и разрешимость краевой задачи, доказана для коэффициентов реакции и массообмена общего вида, имеющих операторную конструкцию (см. ниже). В случае, когда коэффициенты, зависящие от решения, а также функционалы качества дифференцируемы по Фреше, для экстремальных задач выводятся системы оптимальности. На основе анализа одной из полученных систем для оптимальных решений конкретной (однопараметрической) задачи управления установлено свойство релейности или
+справедливость принципа bang-bang (см. о смысле этого термина ниже или в \cite{lit7,lit8,lit15}.
+
+Настоящая работа дополняет статью \cite{lit15} исследованием устойчивости (единственности) оптимальных решений рассматриваемой задачи управления. Для конкретных коэффициентов $k(\vp,\cdot)$ и $\alpha(\vp)$ при использовании регуляризации минимизируемых фунционалов выводятся оценки локальной устойчивости оптимальных решений относительно малых возмущений как конкретных функционалов качества, так и заданной функции $f$. При отсутствии указанных возмущений из полученных оценок вытекает локальная единственность оптимального решения.
+
+Стоит отметить, что свойство релейности оптимального управления установлено в \cite{lit15} для экстремальной задачи без использования регуляризации и без условия малости ее исходных данных.
+
+При анализе рассматриваемых задач будем использовать функциональные пространства Соболева $H^s(D)$, $s \in \R$. Здесь $D$ обозначает область $\Omega$, либо некоторую подобласть $Q \subset \Omega$, либо часть $\Gamma_D$ границы $\Gamma$.
+
+Через $\norm{\cdot}_{s,Q}, \abs{\cdot}_{s,Q}$ и $\pares{\cdot, \cdot}_{s,Q}$ будем обозначать норму, полунорму и скалярное произведение в $H^s (Q)$. Нормы и скалярные произведения в $L^2 (Q)$, $L^2 (\Omega)$ либо в $L^2 (\Gamma_N)$ будем обозначать соответственно через $\norm{\cdot}_Q$ и $\pares{\cdot, \cdot}_Q$, $\norm{\cdot}_\Omega$ и $\pares{\cdot, \cdot}$ либо $\norm{\cdot}_{\Gamma_N}$ и $\pares{\cdot, \cdot}_{\Gamma_N}$. 
+Пусть 
+\[
+	L_{+}^{p} (D) = \braces{
+		k \in L^p (D): k \ge 0 
+	}, ~ p \ge 3/2, 
+\] 
+\[ 
+	Z = \braces{ 
+		\mathbf{v} \in L^4 (\Omega)^3: 
+		\div{\mathbf{v}} = 0 \text{ в } \Omega, 
+		~ \mathbf{v \cdot n}\ont_{\Gamma_N} = 0 
+	},
+\] 
+\[ 
+	H^{s}_{\lambda_0} (\Omega) = \braces{ 
+		\lambda \in H^{s} (\Omega): \lambda \ge \lambda_0 > 0 \text{ в } \Omega 
+	}, s > 3/2, 
+\] 
+\[ 
+	\cT= \braces{ 
+		\vp \in H^1 (\Omega): \vp \ont_{\Gamma_D} = 0 
+	}.
+\]
+
+Предположим, что выполняются следующие условия:
+\begin{enumerate}[(i)]
+
+	\item \label{rconds1}
+		$\Omega$ -- ограниченная область в  $\R^3$ с границей $\Gamma \in C^{0,1}$, состоящей из замыканий двух непересекающихся открытых участков $\Gamma_D$ и $\Gamma_N$ ($\Gamma = \overline \Gamma_D \cup \overline \Gamma_N$, $\Gamma_D \cap \Gamma_N = \emptyset$), при этом поверхностная мера $\meas{\Gamma_D} >0$ и граница $\partial \Gamma_D$ участка $\Gamma_D$ состоит из конечного числа липшицевых кривых или является $n$--угольником;
+
+	\item \label{rconds2}
+		$\lambda \in H^{s}_{\lambda_0} (\Omega)$, $s> 3/2$, $\mathbf{u} \in Z$, $f \in L^2(\Omega)$, $\psi \in H^{1/2} (\Gamma_D)$, $\chi \in L^2 (\Gamma_N)$.
+
+	\item \label{rconds3}
+		Для любой функции $v \in H^1(\Omega)$ справедливо вложение $k \pares{v, \cdot} \in L^{p}_{+} (\Omega)$ для некоторого $p \ge 3/2$, не зависящего от $v$, и на любом шаре $B_r = \braces{
+			v \in H^1 (\Omega): \norm{v}_{1,\Omega} \le r 
+		}$ радиуса $r$ выполняется неравенство
+		\[
+			\norm{k \pares{v_1, \cdot} - k \pares{v_2, \cdot}}_{L^p (\Omega)} 
+			\le L_1 \norm{v_1 - v_2}_{L^4(\Omega)} \quad
+			\forall v_1, v_2 \in B_r.
+		\]
+		Здесь константа $L_1$ зависит от $r$, но не зависит от $v_1, v_2 \in B_r$.
+
+	\item \label{rconds4}
+		Для любой функции $w \in H^1(\Omega)$ справедливо вложение $\alpha \pares{w, \cdot} \in L^{q}_{+} (\Gamma_N)$ для некоторого $q \ge 2$, не зависящего от $w$, и на любом шаре $S_a = \braces{ w \in H^1 (\Omega): \norm{w}_{1,\Omega} \le a }$ радиуса $a$ справедливо неравенство
+		\[
+			\norm{ \alpha \pares{w_1, \cdot} - \alpha \pares{w_2, \cdot} }_{L^q (\Gamma_N)} \le
+			L_2 \norm{ w_1 - w_2 }_{L^2(\Gamma_N)} \quad \forall w_1, w_2 \in S_a.
+		\]
+		Здесь константа $L_2$ зависит от $a$, но не зависит от $w_1, w_2 \in S_a$.
+
+\end{enumerate}
+
+Будем предполагать, что нелинейности $k \pares{\vp,\cdot} \vp$ и $\alpha \pares{\vp, \cdot} \vp$ являются монотонными в следующем смысле:
+\begin{enumerate}[(i)]
+	\setcounter{enumi}{4}
+
+	\item \label{rconds5}
+		$\pares{ k (\vp_1, \cdot) \vp_1 - k (\vp_2, \cdot) \vp_2, \vp_1 - \vp_2} \ge 0$ для всех $\vp_1, \vp_2 \in H^1 (\Omega)$;
+
+	\item \label{rconds6}
+		$ \pares{ \alpha (\vp_1, \cdot) \varphi_1 - \alpha (\vp_2, \cdot) \vp_2, \vp_1 - \vp_2}_{\Gamma_N} \ge 0$ для всех $\vp_1, \vp_2 \in H^1 (\Omega)$.
+
+\end{enumerate}
+
+Пусть так же функции $ k (\vp, \cdot) $ и $\alpha (\vp, \cdot)$ ограничены в том смысле, что существуют положительные константы $A_1, B_1$, зависящие от $k$, и $A_2, B_2$, зависящие от $\alpha$, такие, что
+\begin{enumerate}[(i)]
+	\setcounter{enumi}{6}
+
+	\item \label{rconds7}
+		$\norm{ k (\vp, \cdot) }_{L^p (\Omega)} \le A_1 \norm{\vp}_{1,\Omega}^r + B_1$ для всех $\vp \in H^1 (\Omega)$ при $p \ge 3/2$, $r \ge 0$ ;
+
+	\item \label{rconds8}
+		$\norm{\alpha (\vp, \cdot)}_{L^q (\Gamma_N)} \le A_2 \norm{\vp}_{1,\Omega}^l + B_2$ для всех $\vp \in H^1 (\Omega)$ при $q \ge 2$, $l \ge 0$.
+
+\end{enumerate}
+
+Отметим, что условия (\ref{rconds3}), (\ref{rconds5}) и (\ref{rconds7}) описывают оператор, действующий из $H^1 (\Omega)$ в $L^p(\Omega)$, $p \ge 3/2$, позволяющий учитывать достаточно произвольную зависимость коэффициента реакции, как от концентрации $\vp$, так и от пространственной переменной $\mathbf{x}$. Например,
+\[
+	\tk_1 = \vp^2 ~ 
+	(\text{или } \tk_1 = \vp^2 \abs{\vp}) 
+	\text{ в подобласти } Q \subset \Omega 
+	\text{ и } \tk_1 = k_0 (\mathbf{x}) \in L^{3/2}_+ (\Omega \setminus \overline Q) 
+	\text{ в } \Omega \setminus \overline Q.
+\]
+
+В свою очередь, условия (\ref{rconds4}), (\ref{rconds6}) и (\ref{rconds8}) задают оператор, действующий из $H^1 (\Omega)$ в $L^q (\Gamma_N)$, $q \ge 2$, который позволяет учитывать зависимость коэффициента $\alpha$ от $\vp$ и $\mathbf{x}$. Например,
+\[
+	\ta_1 = \abs{\vp} ~ \text{ на } \Gamma_0 \subset \Gamma_N
+	\text{ и } \ta_1 = \alpha_0 (\mathbf{x}) 
+	\in L^2_+ (\Gamma_N \setminus \overline \Gamma_0) 
+	\text{ в } \Gamma_N \setminus \overline \Gamma_0.
+\]
+
+Напомним также, что в силу теоремы вложения Соболева пространство $H^1 (\Omega)$ вкладывается в пространство $L^s (\Omega)$ непрерывно при $s \le 6$ и компактно при $s < 6$ и с некоторой константой $C_s$, зависящей от $s$ и $\Omega$, справедлива оценка
+\begin{equation}
+	\label{1.4arn}
+	\norm{\vp}_{L^s (\Omega)} \le C_s \norm{\vp}_{1,\Omega} \quad 
+	\forall \vp \in H^1 (\Omega).
+\end{equation}
+
+Пространство $H^{1/2} (\Gamma_N)$ вкладывается в пространство $L^q (\Gamma_N)$ непрерывно при $q \le 4$ и компактно при $q < 4$. В силу непрерывности оператора следа $\gamma: H^1 (\Omega) \to H^{1/2} (\Gamma_N)$ (и его сужения $\gamma\ont_{\Gamma_N}$ на $\Gamma_N \subset \Gamma$) с константой $\tilde C_q$, зависящей от $q$ и $\Gamma_N$, справедлива оценка
+\begin{equation}
+	\label{1.5arn}
+	\norm{\vp}_{L^q (\Gamma_N)} \le \tilde C_q \norm{\vp}_{1,\Omega} \quad
+	\forall \vp \in H^1 (\Omega).
+\end{equation}
+
+Наконец, поскольку при $ r > 1 $ пространство $ H^r (\Gamma_N) $ непрерывно и компактно вкладывается в $L^p (\Gamma_N)$, где $p \le \infty$, то из непрерывности оператора частичного следа $\gamma \ont_{\Gamma_N} : H^{r+1/2} (\Omega) \to H^{r} (\Gamma_N)$ вытекает оценка:
+\begin{equation}
+	\label{5RRR}
+	\norm{\lambda}_{L^p (\Gamma_N)} \le \hat C \norm{\lambda}_{s,\Omega} \quad 
+	\forall \lambda \in H^s (\Omega), \quad  s = r + 1/2 > 3/2.
+\end{equation}
+
+Справедлива следующая техническая лемма (см. \cite{lit15}).
+
+\lemma{
+	\label{lemm11}
+	При выполнении условий (\ref{rconds1}), (\ref{rconds2}), $\mathbf{u} \in Z$, $\lambda \in H^{s}_{\lambda_0} (\Omega)$, $s> 3/2$, $k_1 \in L^{p}_{+} (\Omega)$, $p \ge 3/2$, $\alpha_1 \in L^q_+ (\Gamma_N)$, $q \ge 2$, существуют положительные константы $C_0$, $\delta_0$, $\gamma_1$, $\gamma_p$, зависящие от $\Omega$ или от $\Omega$ и $p$ или от $\Omega, \Gamma_N$ и $q$, с которыми справедливы соотношения
+	\begin{equation}
+		\label{s1}
+		\begin{split}
+			& \abs{\pares{\lambda \grad{\vp}, \grad{\eta}}} \le C_0 \norm{\lambda}_{s,\Omega}
+			\norm{\vp}_{1,\Omega} \norm{\eta}_{1,\Omega}, \\ 
+			& \abs{\pares{\mathbf{u} \cdot \grad{\vp}, \eta}} \le 
+			\gamma_1 \norm{\mathbf{u}}_{L^4 (\Omega)^3} \norm{\vp}_{1,\Omega} \norm{\eta}_{1,\Omega}, \\
+			& \abs{\pares{k_1 \vp, \eta}} \le \gamma_p \norm{k_1}_{L^p(\Omega)} \norm{\vp}_{1,\Omega} \norm{\eta}_{1,\Omega},
+		\end{split}
+	\end{equation}
+	\begin{equation}
+		\label{s2}
+		\abs{\pares{\lambda \alpha_1 \vp, \eta}} \le 
+		\gamma_q \norm{\lambda}_{s,\Omega}
+		\norm{\alpha_1}_{L^q (\Gamma_N)} 
+		\norm{\vp}_{1,\Omega} \norm{\eta}_{1,\Omega} ~ 
+		\forall \vp, \eta \in H^1 (\Omega),
+	\end{equation}
+	\begin{equation}
+		\label{s22}
+		\abs{\pares{\chi, h}} \le \gamma_2 \norm{\chi}_{\Gamma_N} \norm{h}_{1,\Omega} ~ \forall \chi \in L^2 (\Gamma_N), ~ h \in H^1 (\Omega),
+	\end{equation}
+	\begin{equation}
+		\label{s3}
+		\pares{\mathbf{u} \cdot \grad{\vp}, \vp} = 0 ~ 
+		\pares{\lambda \grad{\vp}, \grad{\vp}} \ge \lambda_* \norm{\vp}_{1,\Omega}^2 ~ 
+		\forall \vp \in {\cT}, ~ 
+		\lambda_* \equiv \delta \lambda_0.
+	\end{equation}
+}
+
+Умножим уравнение (\ref{4a}) на $h \in \cT$ и проинтегрируем по $\Omega$,
+применяя формулу Грина. Учитывая (\ref{4}), получим
+\begin{equation}
+	\label{2.4a}
+	\begin{split}
+		\pares{\lambda \grad{\vp}, \grad{h}} + 
+		\pares{k (\vp, \cdot) \vp, h} + 
+		\pares{\mathbf{u} \cdot \grad{\vp}, h} + 
+		\pares{\lambda \alpha (\vp, \cdot) \vp, h}_{\Gamma_N} &= \pares{f,h} + \pares{\chi, h}_{\Gamma_N}
+		\\ 
+		&\forall h \in {\cT}, ~ \vp\ont_{\Gamma_D} = \psi.
+	\end{split}
+\end{equation} 
+
+\definition{
+	Функцию $\vp \in H^1 (\Omega)$, удовлетворяющую (\ref{2.4a}), назовем слабым решением задачи 1.
+}
+
+Для доказательства разрешимости задачи 1 в \cite{lit15} использовалась следующая лемма.
+
+\lemma{
+	\label{lemm12}
+	Пусть выполняются условия (\ref{rconds1}). Тогда для любой функции $\psi \in H^{1/2} (\Gamma_D)$ существует функция $\vp_0 \in H^1 (\Omega)$ такая, что $\vp_0 = \psi$ на $\Gamma_D$ и с некоторой константой $C_\Gamma$, зависящей от $\Omega$ и $\Gamma_D$, справедлива оценка $\norm{\varphi_0}_{1,\Omega} \le C_\Gamma \norm{\psi}_{1/2,\Gamma_D}$.
+}
+
+Справедлива следующая теорема (см. \cite{lit15}).
+
+\theorem{
+	\label{thref11}
+	При выполнении условий (\ref{rconds1})--(\ref{rconds8}) существует единственное слабое решение $\vp \in H^1 (\Omega)$ задачи 1, для которого справедлива оценка
+	\begin{equation}
+		\label{est_phi}
+		\norm{\vp}_{1,\Omega} \le M_\vp \equiv 
+		C_* M_l + C_\Gamma \norm{\psi}_{1/2,\Gamma_D},
+	\end{equation}
+	где $C_\Gamma$ -- константа из леммы \ref{lemm12} и
+	\begin{equation}
+		\label{l_nepr}
+		\begin{split}
+			M_l &\equiv
+			C_2 \norm{f}_\Omega + \gamma_2 \norm{\chi}_{\Gamma_N} +
+			(
+				C_0 C_{\Gamma} 
+				\norm{\lambda}_{s,\Omega} +
+				\gamma_1 C_\Gamma 
+				\norm{\mathbf{u}}_{L^4 (\Omega)^3} 
+			) 
+			\norm{\psi}_{1/2,\Gamma_D} + \\
+			& + C_\Gamma 
+			(
+				\gamma_p 
+				(
+					A_1 C_\Gamma^r \norm{\psi}_{1/2,\Gamma_D}^r + B_1
+				)
+				+ \gamma_q \norm{\lambda}_{s,\Omega}
+				(
+					A_2 C_\Gamma^l \norm{\psi}_{1/2,\Gamma_D}^l + B_2
+				) 
+			) \norm{\psi}_{1/2,\Gamma_D},
+		\end{split}
+	\end{equation}
+}

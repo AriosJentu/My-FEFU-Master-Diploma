@@ -1,0 +1,445 @@
+\RequirePackage{multicol}
+% \RequirePackage{changepage}
+\RequirePackage{graphicx}
+\RequirePackage{ifthen}
+
+\newcommand{\addending}[3]{\ifthenelse{ \equal{#1}{m} }{#2}{#3}}
+\newcommand{\uline}[1]{\underline{#1\vphantom{lp}}}
+
+\newcommand{\dhrule}[3] { % 1, 2 - lines height
+	{
+		\parindent=0pt
+		\rule{\textwidth}{#1}
+		
+		\vspace{\dimexpr-\baselineskip+1mm+#3-1pt}
+		
+		\rule{\textwidth}{#2}
+	}
+}
+
+\newcommand{\titlefefudoc}[4] {
+	
+	%\pagestyle{empty}
+	
+	\thispagestyle{empty}
+	
+	\begin{center}
+		
+		\vspace*{-0.3in}
+		
+		\parbox{1cm}{\includegraphics[scale=0.25]{additional/fefulogo.pdf}} %FEFU logo
+		
+		\vspace{10pt}
+		% \vspace{15pt}
+		
+		{\fontsize{11}{11} \selectfont МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ}
+		
+		% \vspace{-10pt}
+		\vspace{-6pt}
+		{\fontsize{11}{11} \selectfont Федеральное государственное автономное образовательное учреждение высшего образования}
+		
+		\vspace*{-4pt}
+		{\textbf{<<Дальневосточный федеральный университет>>}}
+		
+		% {\textbf{(ДВФУ)}}
+		\vspace*{-4pt}
+		{(ДВФУ)}
+		% \vspace*{-10pt}
+		% \dhrule{3pt}{1pt}{0pt}	
+
+	\end{center}
+	\vspace*{-0.4in}
+
+	#1
+		
+	#2
+	
+	#3
+	
+	\vfill
+
+	\begin{center}
+		Владивосток \linebreak #4
+	\end{center}
+	
+	\pagebreak
+}
+
+\newcommand{\titlefefudocold}[4] {
+	
+	%\pagestyle{empty}
+	
+	\thispagestyle{empty}
+	
+	\begin{center}
+		
+		\vspace*{-0.5in}
+		
+		\parbox{1cm}{\includegraphics[scale=0.25]{additional/fefulogo.pdf}} %FEFU logo
+		
+		\vspace{15pt}
+		
+		{\fontsize{10.5}{10.5} \selectfont МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ}
+		
+		\vspace{-6pt}
+		{\fontsize{11}{11} \selectfont Федеральное государственное автономное образовательное учреждение высшего образования}
+		
+		{\textbf{<<Дальневосточный федеральный университет>>}}
+		
+		{\textbf{(ДВФУ)}}
+
+		\vspace*{-10pt}
+
+		\dhrule{3pt}{1pt}{0pt}	
+
+	\end{center}
+
+	\vspace*{-0.6in}
+
+	#1
+		
+	#2
+	
+	#3
+	
+	\vfill
+
+	\begin{center}
+		\textbf{г. Владивосток \linebreak #4}
+	\end{center}
+	
+	\pagebreak
+}
+
+\newcommand{\schoolfrom}[2] {
+	
+	\begin{center}
+		#1	%School name
+		% \vspace*{-6pt}
+
+		#2	%Department name
+	\end{center}
+	\vspace{20pt}
+}
+
+\newcommand{\schoolfromold}[2] {
+	
+	\begin{center}
+		\textbf{#1}	%School name
+		
+		\textbf{#2}	%Department name
+	\end{center}
+}
+
+\newcommand{\docaboutrep}[3] {
+	\begin{center}
+		
+		\textbf{#1}	%Type of work
+		
+		\vspace{3pt}
+		{#2}	%Topic of report
+		
+		\vspace{3pt}
+		
+		{
+			\fontsize{14}{14} \selectfont
+			Направление подготовки
+
+			{#3}	%Which group
+		
+		}
+		
+	\end{center}
+}
+
+\newcommand{\docmarknum}[4]{	
+
+	#1 \uline{\hspace{120pt}}
+	
+	%\vspace{20pt}
+	
+	Зав. кафедрой
+	
+	\uline{\hspace{80pt}} #2
+	
+	%\vspace{10pt}
+	\docdate{#3}
+	
+	%\vspace{30pt}
+
+	{		
+		\fontsize{12}{12} \selectfont 
+		Рег. № \uline{\text{#4}} -- \uline{\hspace{40pt}}
+	}
+
+	\vspace{10pt}
+	\docdate{#3}	
+}
+
+\newcommand{\generatestudentstr}[1]{
+	Выполнил{\addending{#1}{}{а}} студент{\addending{#1}{}{ка}} гр.
+}
+
+\newcommand{\docdoublesided}[7] {
+	
+	% \vspace{10pt}
+	{
+		\parindent 0pt
+		
+		\begin{multicols}{2}
+			
+			~\vspace{20pt}
+			
+			#6
+			
+			\vfill\null
+			
+		\columnbreak
+			
+			\generatestudentstr{#1} {#2}
+			
+			\usersignature{#3}
+			
+			#4
+			
+			\vspace{20pt}
+			\docdate{#5}
+			
+			\vspace{20pt}
+			#7
+			
+		\end{multicols}
+	}
+}
+
+\newcommand{\docteacher}[4]{
+	{
+		\linespread{0.5}
+		#1\ifthenelse{ \equal{#2}{y} }{
+			
+			$\underset{
+				\textit{ (должность, уч. звание) }
+			}{
+				\uline{\text{#3}}
+			}$
+		}{
+			\text{#3}
+		}
+
+		\vspace*{-10pt}
+		\usersignature{#4}
+	}
+}
+
+\newcommand{\usersignatureiofam}[2]{
+	$\underset{
+		\textit{ подпись }
+	}{
+		\uline{\hspace{80pt}}
+	}$ {#2}
+	$\underset{
+		\textit{ И.О. Фамилия }
+	}{
+		\uline{\text{#1}}
+	}$ 
+}
+
+\newcommand{\usersignature}[1]{
+	$\underset{
+		\textit{ (Ф.И.О.) }
+	}{
+		\uline{\text{#1}}
+	}$ 
+	$\underset{
+		\textit{ (подпись) }
+	}{
+		\uline{\hspace{80pt}}
+	}$
+}
+
+\newcommand{\signature}[1]{
+	$\underset{
+		\textit{ (подпись) }
+	}{
+		\uline{#1}
+	}$
+}
+
+\newcommand{\docdate}[1]{
+	
+	<<\underline{\hspace{30pt}}>>\underline{\hspace{80pt}}{
+		\ifthenelse{ \equal{#1}{e} }{20\underline{\hspace{25pt}}}{#1}
+	}г.
+}
+
+\newcommand{\docdatemonth}[2]{
+	
+	<<\underline{\hspace{30pt}}>>\underline{#1}{
+		\ifthenelse{ \equal{#2}{e} }{20\underline{\hspace{25pt}}}{#2}
+	}г.
+}
+
+\newcommand{\consultant}[1]{
+
+		\usersignatureiofam{#1}{}
+
+		\vspace{15pt}
+
+		\docdatemonth{\hspace{105pt}}{e}
+}
+
+\newcommand{\othersidetitlepage}[7]{
+	% \vspace{10pt}
+	{
+		\parindent 0pt
+		\fontsize{12pt}{0.6\baselineskip}
+		\selectfont
+		
+		\begin{multicols}{2}
+			{
+				% \fontsize{12}{12} \selectfont 
+				В материалах данной выпускной \\ квалификационной работы не содержатся \\ сведения, составляющие государственную \\ тайну, и сведения, подлежащие экспортному \\ контролю
+				% В материалах данной выпускной квалификационной работы не содержатся сведения, составляющие государственную тайну, и сведения, подлежащие экспортному контролю
+			}
+
+			\vspace{15pt}
+
+			Уполномоченный по экспортному контролю
+
+			\vspace{15pt}
+
+			\usersignatureiofam{#1}{\hspace{5pt}}
+
+			\vspace{10pt}
+
+			\docdatemonth{\hspace{120pt}}{e}
+
+			\vfill\null
+			
+		\columnbreak
+			
+			Автор работы 
+			$\underset{
+				\textit{ подпись }
+			}{
+				\uline{\hspace{120pt}}
+			}$,
+
+			\vspace{15pt}
+
+			группа $\uline{\hspace{160pt}}$
+
+			\vspace{15pt}
+
+			\docdatemonth{\hspace{105pt}}{e}
+
+			\vspace{20pt}
+
+			Руководитель ВКР $\underset{
+				\textit{ должность, ученое звание }
+			}{
+				\uline{#2}
+			}$
+
+			\consultant{#3}
+
+			\vspace{10pt}
+
+			\ifthenelse{ 
+				\equal{#4}{s} \OR \equal{#4}{m}
+			}{
+				Консультант{\ifthenelse{\equal{#4}{m}}{ы}{}}:
+				#5
+			}{}
+
+			\vfill\null
+			
+		\end{multicols}
+
+		\ifthenelse{\equal{#6}{e}}{}{
+
+			\begin{multicols}{2}
+
+				\vfill\null
+
+			\columnbreak
+
+				Назначен рецензент $\underset{
+					\textit{ ученое звание }
+				}{
+					\uline{\hspace{100pt}}
+				}$
+
+				\vspace{5pt}
+
+				$\underset{
+					\textit{ фамилия, имя, отчество }
+				}{
+					\uline{#7}
+				}$
+
+			\end{multicols}
+		}
+
+		\begin{multicols}{2}
+
+			Защищена в ГЭК с оценкой
+
+			\vspace{6pt}
+
+			\uline{\hspace{210pt}}
+
+			\vspace{15pt}
+
+			Секретарь ГЭК
+
+			\consultant{\hspace{125pt}}
+
+			\vfill\null
+
+		\columnbreak
+
+			\textbf{<<Допустить к защите>>}
+
+			Директор Департамента
+
+			\vspace{10pt}
+			
+			$\underset{
+				\textit{ ученая степень, ученое звание }
+			}{
+				\uline{\hspace{210pt}}
+			}$
+
+			\vspace{5pt}
+
+			\consultant{\hspace{125pt}}
+
+			\vfill\null
+
+		\end{multicols}
+
+	}
+}
+
+\newcommand{\drawtitle}{
+
+	\begin{center}
+
+		\vspace*{-0.5in}
+		
+		\parbox{1cm}{\includegraphics[scale=0.25]{additional/fefulogo.pdf}} %FEFU logo
+		
+		\vspace{15pt}
+		
+		{\fontsize{10.5}{10.5} \selectfont МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ}
+		
+		\vspace{-6pt}
+		{\fontsize{11}{11} \selectfont Федеральное государственное автономное образовательное учреждение высшего образования}
+		
+		{\textbf{<<Дальневосточный федеральный университет>>}}
+		
+		{\textbf{(ДВФУ)}}
+
+	\end{center}
+}

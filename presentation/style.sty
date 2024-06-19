@@ -1,0 +1,67 @@
+\RequirePackage[english, russian]{babel}
+\RequirePackage{fontspec}
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{geometry}
+\RequirePackage{enumerate}
+\RequirePackage{graphicx}
+\RequirePackage{multicol}
+
+\RequirePackage{fancyhdr}
+
+\RequirePackage{cite}
+
+\definecolor{MyPurple}{rgb}{0.44706, 0.10725, 0.76667} % UBC Blue (primary)
+\usecolortheme[named=MyPurple]{structure}
+
+\usetheme{Antibes}
+\pagenumbering{arabic}
+\setbeamertemplate{footline}[frame number]
+
+%Config geometry
+\geometry{paperwidth=144mm}
+\geometry{paperheight=108mm}
+
+% Config main language
+% \setmainlanguage{russian}
+% \setdefaultlanguage{russian}
+% \SetLanguageKeys{russian}{indentfirst=true}
+
+% Configure font
+% \setmainfont{Georgia}
+\setmainfont{Times New Roman}
+% \setsansfont{Courier New}
+% \setmonofont{Droid Sans Mono}
+% \setsansfont{Droid Sans}
+\setsansfont{Times New Roman}
+% \newfontfamily\cyrillicfont{Georgia}
+
+\newcommand{\fefuheader}{
+	\begin{center}
+
+		\vspace*{-20pt}
+		\includegraphics[width=5mm]{additional/fefulogo.pdf}
+
+		\textrm{\fontsize{8}{8} \selectfont МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ}
+
+		\vspace*{-6pt}
+		\textrm{\fontsize{8}{8} \selectfont Федеральное государственное автономное образовательное учреждение высшего образования}
+
+		\vspace*{-3pt}
+		\textrm{\fontsize{9}{9} \selectfont \textbf{<<Дальневосточный федеральный университет>>}}
+
+		\vspace*{-3pt}
+		\textrm{\fontsize{9}{9} \selectfont \textbf{(ДВФУ)}}
+	\end{center}
+
+	\vspace*{-20pt}
+}
+
+\newenvironment{noheadline}{
+    \setbeamertemplate{headline}{}
+    \addtobeamertemplate{frametitle}{\vspace*{-0.9\baselineskip}}{}
+}{}
+
+%Custom labeling enumerators
+\newcommand{\enumilab}[2]{#2\def\@currentlabel{#2}\label{#1}} 

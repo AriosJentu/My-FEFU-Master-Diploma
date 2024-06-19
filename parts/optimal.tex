@@ -1,0 +1,444 @@
+Обозначим через $(\vp_1, u_1) \in H^1 (\Omega) \times K$ решение задачи (\ref{3.1}), отвечающее заданной функции $f = f_1 \in L^2 (\Omega)$. Через $(\vp_2, u_2) \in H^1 (\Omega) \times K$ обозначим решение задачи
+\begin{equation}
+    \label{func}
+    \begin{split}
+        \tilde J \pares{\vp, u} 
+        &= \frac{\mu_0}{2} \tilde I (\vp) 
+        + \frac{\mu_1}{2} \norm{\lambda}^2_{s,\Omega} 
+        + \frac{\mu_2}{2} \norm{\beta}^2_{1,\Omega} \to \inf, \\
+        F \pares{\vp, u, \tilde f} &= 0, ~ \pares{\vp, u} \in H^1 (\Omega) \times K.
+    \end{split}
+\end{equation}
+Она получается из (\ref{3.1}) заменой функционала $I: H^1(\Omega) \to \R$ другим функционалом $\tilde I: H^1 (\Omega) \to \R$ и заменой функции $f$ функцией $f_2 = \tilde f \in L^2 (\Omega)$. Считая множество $K$ ограниченным, а функционалы $I(\vp)$ и $\tilde I(\vp)$ непрерывно дифференцируемыми на $H^1 (\Omega)$, выведем одно важное  для дальнейшего анализа неравенство для разности решений задач (\ref{3.1}) и (\ref{func}). Напомним, что в силу теоремы \ref{thref11} справедливы следующие оценки для $\vp_i$:
+\begin{equation}
+    \label{varphii}
+    \norm{\vp_i}_{1, \Omega} \le M_\vp = C_{*} \sup_{ \pares{\lambda, \beta} \in K} \tilde M_\vp, ~ i={1, 2}, ~ C_{*} \equiv \lambda^{-1}_{*},
+\end{equation}
+где $\tilde M_\vp$ определена в (\ref{est_phi}). Ясно, что $M_\vp < \infty$ в случае, когда множество $K$ ограничено. 
+
+Обозначим через $\theta_i \in {\cT}$, отвечающие решениям $\pares{\vp_i, u_i}, ~ i=1, 2$, множители Лагранжа. 
+В силу теоремы \ref{thref22} они удовлетворяют соотношениям
+\begin{equation}
+    \label{theta1}
+    \begin{split}
+        \pares{
+            \lambda_1 \grad{\tau}, \grad{\theta_1}
+        } 
+        &+ 3 \pares{
+            \beta_1 \vp_1^2 \tau, \theta_1
+        } 
+        + \pares{
+            \mathbf{u} \cdot \grad{\tau}, \theta_1
+        } + \\
+        + 2 \pares{
+            \lambda_1 \abs{\vp_1} \tau, \theta_1
+        }_{\Gamma_N} 
+        &+ \vprod{\zeta_1, \tau}_{\Gamma_D}
+        = - \frac{\mu_0}{2} \vprod{
+            I_\vp' (\vp_1), \tau
+        } \quad
+        \forall \tau \in H^1 (\Omega),
+    \end{split}
+\end{equation}
+\begin{equation}
+    \label{theta2}
+    \begin{split}
+        \pares{
+            \lambda_2 \grad{\tau}, \grad{\theta_2}
+        } 
+        &+ 3 \pares{
+            \beta_2 \vp_2^2 \tau, \theta_2
+        } 
+        + \pares{
+            \mathbf{u} \cdot \grad{\tau}, \theta_2
+        } + \\
+        + 2 \pares{
+            \lambda_2 \abs{\vp_2} \tau, \theta_2
+        }_{\Gamma_N}
+        &+ \vprod{\zeta_2, \tau}_{\Gamma_D}
+        = - \frac{\mu_0}{2} \vprod{
+            \tilde I_\vp' (\vp_2), \tau
+        } \quad 
+        \forall \tau \in H^1 (\Omega).
+    \end{split}
+\end{equation}
+
+Положим
+\begin{equation}
+    \label{sign}
+    \vp = \vp_1 - \vp_2, ~ 
+    \beta = \beta_1 - \beta_2, ~
+    \lambda = \lambda_1 - \lambda_2, ~
+    \theta = \theta_1 - \theta_2, ~ 
+    \zeta = \zeta_1 - \zeta_2, ~
+    f = f_1 - f_2.
+\end{equation}
+При $k \pares{\vp, \cdot} = \beta(\cdot) \vp^2$ и $\alpha (\vp) = \abs{\vp}$ слабая формулировка (\ref{2.4a}) задачи 1 принимает вид 
+\begin{equation}
+    \label{2.4aRR}
+    \begin{split}
+        \pares{\lambda \grad{\vp}, \grad{h}} 
+        &+ \pares{\beta \vp^3, h} 
+        + \pares{\mathbf{u} \cdot \grad{\vp}, h} 
+        + \pares{\lambda \abs{\vp} \vp, h}_{\Gamma_N} = \\
+        &= \pares{f,h} + \pares{\chi, h}_{\Gamma_N}
+        ~ \forall h \in {\cT}, ~ \vp\ont_{\Gamma_D} = \psi.
+    \end{split}
+\end{equation} 
+Вычтем тождество (\ref{2.4aRR}) записанное для $\pares{\vp_2, u_2, f_2}$, из (\ref{2.4aRR}) для $\pares{\vp_1, u, f_1}$. 
+Учитывая, что 
+\[ \beta_1 \vp_1^3 - \beta_2 \vp_2^3 = \beta \vp_1^3 + \beta_2 \pares{\vp_1^3- \vp_2^3}, \]
+\[ 
+    \beta_2 \pares{\vp_1^3 - \vp_2^3} = 
+    \beta_2 \pares{\vp_1 - \vp_2} \pares{\vp_1^2 + \vp_1 \vp_2 + \vp_2^2} \equiv k_0 \vp,
+\] 
+\[ k_0 = \beta_2 \pares{\vp_1^2 + \vp_1 \vp_2 + \vp_2^2} \ge 0, \]
+\[
+    \lambda_1 \grad{\vp_1} - \lambda_2 \grad{\vp_2} = 
+    \lambda_1 \grad{\vp} + \lambda \grad{\vp_2},
+\]
+\[
+    \begin{split}
+        \lambda_1 \abs{\vp_1} \vp_1 
+        &- \lambda_2 \abs{\vp_2} \vp_2 
+        = \lambda_1 \abs{\vp_1} \vp_1
+        - \lambda_2 \abs{\vp_1} \vp_1 
+        + \lambda_2 \abs{\vp_1} \vp_1 - \\
+        &- \lambda_2 \abs{\vp_2} \vp_2
+        = \lambda \abs{\vp_1} \vp_1 
+        + \lambda_2 \pares{ \abs{\vp_1} \vp_1 
+        - \abs{\vp_2} \vp_2 },
+    \end{split}
+\]
+получим
+\begin{equation}
+    \label{weakminus}
+    \begin{split}
+        \pares{\lambda_1 \grad{\vp}, \grad{h}} 
+        &+ \pares{k_0 \vp, h} 
+        + \pares{\mathbf{u} \cdot \grad{\vp}, h} 
+        + \pares{
+            \lambda_2 \pares{
+                \abs{\vp_1} \vp_1 - \abs{\vp_2} \vp_2
+            } ,h
+        }_{\Gamma_N} = \\
+        &= \pares{f, h} - \pares{\lambda \grad{\vp_2}, \grad{h}} 
+        - \pares{\beta \vp_1^3, h} 
+        - \pares{\lambda \abs{\vp_1} \vp_1, h}_{\Gamma_N} \quad 
+        \forall h \in {\cT}.
+    \end{split}
+\end{equation}
+
+Поскольку введенная выше функция $k_0$ принадлежит $L^p_+ (\Omega), ~ p \ge 3/2$, то из теоремы \ref{thref11}, примененной к линейной относительно разности $\vp = \vp_1 - \vp_2$ задаче (\ref{weakminus}) и оценок (\ref{s3}), (\ref{varphii}) с учетом монотонности функции $\lambda_2 \vp \abs{\vp}$:
+\[
+    \pares{\lambda_2 \pares{\abs{\vp_1} \vp_1 - \abs{\vp_2} \vp_2}, \vp_1 - \vp_2}_{\Gamma_N} \ge 0,
+\]
+вытекает, что справедлива следующая оценка для $\vp$:
+\begin{equation}
+    \label{varphiest}
+    \norm{\vp}_{1, \Omega} \le C_{*} \pares{
+        a \norm{\lambda}_{s,\Omega} 
+        + b \norm{\beta}_{1,\Omega} 
+        + \norm{f}_\Omega
+    },  
+\end{equation} 
+где $a = \gamma_q \tilde{C_4} M_\vp$, $b = C_6^3 C_4^2 M_{\vp}^3$.
+
+Положим $\lambda = \lambda_2$ в неравенстве (\ref{5a}), записанном при $\hat \lambda = \lambda_1, \hat \vp = \vp_1, \theta = \theta_1$, и $\lambda = \lambda_1$ в неравенстве (\ref{5a}), записанном при $\hat \lambda = \lambda_2, \hat \vp = \vp_2, \theta = \theta_2$. Получим 
+\[
+    \mu_1 
+    \pares{\lambda_1, \lambda_2 - \lambda_1}_{s,\Omega} 
+    + \pares{ \pares{\lambda_2 - \lambda_1} \grad{\vp_1}, \grad{\theta_1}} 
+    + \pares{ \pares{\lambda_2 - \lambda_1} \abs{\vp_1} \vp_1, \theta_1}_{\Gamma_N} 
+    \ge 0, 
+\]
+\[
+    \mu_1 
+    \pares{\lambda_2, \lambda_1 - \lambda_2}_{s,\Omega} 
+    + \pares{ \pares{\lambda_1 - \lambda_2} \grad{\vp_2}, \grad{\theta_2}} 
+    + \pares{ \pares{\lambda_1 - \lambda_2} \abs{\vp_2} \vp_2, \theta_2}_{\Gamma_N} 
+    \ge 0.
+\]
+
+Сложив последние неравенства, получим
+\begin{equation}
+    \label{lam}
+    \begin{split}
+        \mu_1 
+        \norm{\lambda}^2_{s,\Omega} &\le 
+        - \pares{\lambda \grad{\vp}, \grad{\theta_2}} 
+        - \pares{\lambda \grad{\vp_1}, \grad{\theta}} - \\
+        &- \pares{\lambda 
+            \pares{
+                \vp_2 \pares{\abs{\vp_1} - \abs{\vp_2}}
+                + \abs{\vp_1} \vp
+            }, \theta_2
+        }_{\Gamma_N} 
+        + \pares{\lambda \vp_1 \abs{\vp_1}, \theta}_{\Gamma_N}.
+    \end{split}
+\end{equation}
+
+Положим $\beta = \beta_2$ в неравенстве (\ref{5b}), записанном при $\hat \beta = \beta_1, \hat \vp = \vp_1, \theta = \theta_1$, и $\beta = \beta_1$ в неравенстве (\ref{5b}), записанном при $\hat \beta = \beta_2, \hat \vp = \vp_2, \theta = \theta_2$. Получим 
+\[
+    \mu_2 \pares{\beta_1, \beta_2 - \beta_1}_{1,\Omega} 
+    - \pares{ \pares{\beta_2 - \beta_1} \vp_1^3, \theta_1} \ge 0,
+\]
+\[
+    \mu_2 \pares{\beta_2, \beta_1 - \beta_2}_{1,\Omega} 
+    - \pares{ \pares{\beta_1 - \beta_2} \vp_2^3, \theta_2} \ge 0,
+\]
+Складывая эти неравенства, приходим к соотношению 
+\begin{equation}
+    \label{prmin}
+    \mu_1 \norm{\beta}^2_{1,\Omega} \le 
+    \pares{ 
+        \beta \vp 
+        \pares{\vp_1^2 + \vp_1 \vp_2 + \vp_2^2}, 
+        \theta_1
+    }
+    + \pares{\beta \vp_2^3, \theta}.
+\end{equation}
+
+Вычтем теперь тождество (\ref{theta2}) из (\ref{theta1}). Учитывая, что
+\[
+    \pares{\lambda_1 \grad{\tau}, \grad{\theta_1}} - 
+    \pares{\lambda_2 \grad{\tau}, \grad{\theta_2}} = 
+    \pares{\lambda_1 \grad{\tau}, \grad{\theta}} + 
+    \pares{\lambda \grad{\tau}, \grad{\theta_2}},
+\]
+\[
+    \begin{split}
+        \pares{\lambda_1 \abs{\vp_1} \tau, \theta_1}_{\Gamma_N} 
+        &- \pares{\lambda_2 \abs{\vp_2} \tau, \theta_2}_{\Gamma_N} = \\
+        &= \pares{\lambda \abs{\vp_1} \tau, \theta_1}_{\Gamma_N} 
+        + \pares{\lambda_2 
+            \pares{
+                \abs{\vp_1} - \abs{\vp_2}
+            } \tau, \theta_1
+        }_{\Gamma_N} + \\ 
+        &+ \pares{\lambda_2 \abs{\vp_2} \tau, \theta}_{\Gamma_N},
+    \end{split}
+\]
+\[
+    \begin{split}
+        \pares{\beta_1 \vp_1^2 \tau, \theta_1} 
+        &- \pares{\beta_2 \vp_2^2 \tau, \theta_2}
+        = \pares{\beta \vp_1^2 \tau, \theta_1} + \\
+        &+ \pares{\beta_2 \vp \pares{\vp_1 + \vp_2} \tau, \theta_1}
+        + \pares{\beta_2 \vp_2^2 \tau, \theta},
+    \end{split}
+\]
+будем иметь
+\begin{equation}
+    \label{thetaminus}
+    \begin{split}
+        \pares{\lambda_1 \grad{\tau}, \grad{\theta}} 
+        &+ 3 \pares{\beta_2 \vp \pares{\vp_1 + \vp_2} \tau, \theta_1}
+        + 3 \pares{\beta_2 \vp_2^2 \tau, \theta} + \\
+        &+ \pares{
+            \lambda_2 \pares{\abs{\vp_1} - \abs{\vp_2}} \tau, \theta_1
+        }_{\Gamma_N} 
+        + \pares{\lambda_2 \abs{\vp_2} \tau, \theta}_{\Gamma_N} + \\ 
+        &+ \pares{\mathbf{u} \cdot \grad{\tau}, \theta} +
+        + \vprod{\zeta, \tau}_{\Gamma_D} = \\
+        &= - \pares{\lambda \grad{\tau}, \grad{\theta_2}} 
+        - \pares{\lambda \abs{\vp_1} \tau, \theta_1}_{\Gamma_N}
+        - 3 \pares{\beta \vp_1^2 \tau, \theta_1} - \\
+        &- (\mu_0 / 2) \vprod{I_\vp' (\vp_1) - \tilde I_\vp' (\vp_2) ,\tau} 
+        \quad \forall \tau \in H^1 (\Omega).
+    \end{split}
+\end{equation}
+
+Полагая в (\ref{thetaminus}) $\tau = \vp$, с учетом того, что $\vp = \vp_1 - \vp_2 = 0$ на $\Gamma_D$, получим
+\begin{equation}
+\label{thetaminus1}
+    \begin{split}
+        \pares{\lambda_1 \grad{\vp}, \grad{\theta}} 
+        &+ 3 \pares{\beta_2 \pares{\vp_1 + \vp_2} \vp^2, \theta_1} 
+        + 3 \pares{\beta_2 \vp_2^2 \vp, \theta} + \\
+        &+ \pares{\lambda_2 \pares{
+            \abs{\vp_1} - \abs{\vp_2}
+        } \vp, \theta_1}_{\Gamma_N}
+        + \pares{\lambda_2 \abs{\vp_2} \vp, \theta}_{\Gamma_N} + \\
+        &+ \pares{\mathbf{u} \cdot \grad{\vp}, \theta}
+        = - \pares{\lambda \grad{\vp}, \grad{\theta_2}}
+        - \pares{\lambda \abs{\vp_1} \vp, \theta_1}_{\Gamma_N} - \\
+        &- 3 \pares{\beta \vp_1^2 \vp, \theta_1}
+        - (\mu_0 / 2) \vprod{
+            I_\vp' (\vp_1) - \tilde I_\vp' (\vp_2) , \vp
+        }.
+    \end{split}
+\end{equation}
+
+Положим далее $h = \theta$ в (\ref{weakminus}). Будем иметь
+\[
+    \begin{split}
+        \pares{\lambda_1 \grad{\vp}, \grad{\theta}} 
+        &+ \pares{\beta_2 
+            \pares{
+                \vp_1^2 + \vp_1 \vp_2 + \vp_2^2
+            } \vp, \theta
+        } + \pares{\mathbf{u} \cdot \grad{\vp}, \theta} + \\
+        &+ \pares{\lambda_2 
+            \pares{
+                \abs{\vp_1} \vp_1 - \abs{\vp_2} \vp_2
+            }, \theta
+        }_{\Gamma_N}
+        = \pares{f, h} 
+        - \pares{\lambda \grad{\vp_2}, \grad{\theta}} - \\
+        &- \pares{\beta \vp_1^3, \theta} 
+        - \pares{\lambda \abs{\vp_1} \vp_1,\theta}_{\Gamma_N}.
+    \end{split}
+\]
+
+%TODO
+
+Вычтем это равенство из (\ref{thetaminus1}). Учитывая, что 
+\[
+    \begin{split}
+        3 \pares{\beta_2 \pares{\vp_1 + \vp_2} \vp^2, \theta_1}
+        &+ 3 \pares{\beta_2 \vp_2^2 \vp, \theta} 
+        - \pares{\beta_2 
+            \pares{
+                \vp_1^2 + \vp_1 \vp_2 + \vp_2^2
+            } \vp, \theta
+        } = \\
+        &= 3 \pares{\beta_2 \pares{\vp_1 + \vp_2} \vp^2, \theta_1} 
+        - \pares{\beta_2 
+            \pares{
+                \vp_1^2 + \vp_1 \vp_2 - 2 \vp_2^2
+            } \vp, \theta
+        },
+    \end{split}
+\]
+\[
+    \begin{split}
+        \pares{\lambda_2 \abs{\vp_2} \vp, \theta}_{\Gamma_N} 
+        &- \pares{\lambda_2 
+            \pares{
+                \abs{\vp_1} \vp_1 - \abs{\vp_2} \vp_2
+            }, \theta
+        }_{\Gamma_N} = \\
+        &= \pares{
+            \lambda_2 
+            \pares{
+                \abs{\vp_2} \pares{\vp_1 -\vp_2} 
+                - \abs{\vp_1} \vp_1 
+                + \abs{\vp_2} \vp_2
+            }, \theta
+        }_{\Gamma_N} = \\
+        &= \pares{\lambda_2 
+            \pares{
+                \abs{\vp_2} - \abs{\vp_1}
+            } \vp_1, \theta
+        }_{\Gamma_N},
+    \end{split}
+\]
+получим
+\begin{equation}
+    \label{33RR}
+    \begin{split}
+        3 \pares{\beta_2 \pares{\vp_1 + \vp_2} \vp^2, \theta_1}
+        &- \pares{\beta_2 \pares{\vp_1^2 + \vp_1 \vp_2 - 2 \vp_2^2} \vp, \theta} + \\
+        &+ \pares{\lambda_2 
+            \pares{
+                \abs{\vp_1} - \abs{\vp_2}
+            } \vp, \theta_1
+        }_{\Gamma_N} + \\
+        &+ \pares{\lambda_2 
+            \pares{
+                \abs{\vp_2} - \abs{\vp_1}
+            } \vp_1, \theta
+        }_{\Gamma_N} = \\
+        &= - \pares{\lambda \grad{\vp}, \grad{\theta_2}}
+        - \pares{\lambda \abs{\vp_1} \vp, \theta_1}_{\Gamma_N} - \\
+        &- 3 \pares{\beta \vp_1^2 \vp, \theta_1}
+        - (\mu_0 / 2) \vprod{I_\vp' (\vp_1) - \tilde I_\vp' (\vp_2) , \vp} - \\
+        &- \pares{f, h} 
+        + \pares{\lambda \grad{\vp_2}, \grad{\theta}} + \\
+        &+ \pares{\beta \vp_1^3, \theta} 
+        + \pares{\lambda \abs{\vp_1} \vp_1, \theta}_{\Gamma_N}.
+    \end{split}
+\end{equation}
+
+Равенство (\ref{33RR}) перепишем в следующем виде:
+\begin{equation}
+    \label{34RR}
+    \begin{split}
+        (\mu_0 / 2) &\vprod{I_\vp' (\vp_1) - \tilde I_\vp' (\vp_2), \vp} =
+        - 3 \pares{\beta_2  (\vp_1 + \vp_2) \vp^2, \theta_1} + \\
+        & + \pares{\beta_2 
+            \pares{
+                \vp_1^2 + \vp_1 \vp_2 - 2 \vp_2^2
+            } \vp, \theta
+        }
+        - \pares{\lambda_2 
+            \pares{
+                \abs{\vp_1} - \abs{\vp_2}
+            } \vp, \theta_1
+        }_{\Gamma_N} - \\
+        &- \pares{\lambda_2 
+            \pares{
+                \abs{\vp_2} - \abs{\vp_1}
+            } \vp_1, \theta
+        }_{\Gamma_N}
+        - \pares{\lambda \grad{\vp}, \grad{\theta_2}} - \\
+        &- \pares{\lambda \abs{\vp_1} \vp, \theta_1}_{\Gamma_N}
+        - 3 \pares{\beta \vp_1^2 \vp, \theta_1} 
+        - \pares{f, h} + \pares{\lambda \grad{\vp_2}, \grad{\theta}} + \\
+        &+ \pares{\beta \vp_1^3, \theta} 
+        + \pares{\lambda \abs{\vp_1} \vp_1, \theta}_{\Gamma_N}.
+    \end{split}
+\end{equation}
+Складывая (\ref{34RR}) c (\ref{lam}) и (\ref{prmin}), получим
+\[
+    (\mu_0 / 2) \vprod{I_\vp' (\vp_1) - \tilde I_\vp' (\vp_2), \vp} 
+    + \mu_1 \norm{\lambda}_{s,\Omega}^2 
+    + \mu_2 \norm{\beta}_{1,\Omega}^2 \le A_1 + A_2 - \pares{f, h},
+\]
+\begin{equation}
+    \label{thetaminus3}
+    \begin{split}
+        A_1 &= - 3 \pares{\beta_2 \pares{\vp_1 + \vp_2} \vp^2, \theta_1}
+        + \pares{\beta_2 
+            \pares{
+                \vp_1^2 + \vp_1 \vp_2 - 2 \vp_2^2
+            } \vp, \theta
+        } - \\
+        &- \pares{\beta \vp 
+            \pares{ 
+                -2 \vp_1^2 + \vp_1 \vp_2 + \vp_2^2
+            }, \theta_1
+        } 
+        + \pares{\beta \vp_2^3, \theta}, \\
+        A_2 &= - \pares{\lambda_2 
+            \pares{
+                \abs{\vp_1} - \abs{\vp_2}
+            } \vp, \theta_1
+        }_{\Gamma_N} 
+        - \pares{\lambda_2 
+            \pares{
+                \abs{\vp_2} - \abs{\vp_1}
+            } \vp_1, \theta
+        }_{\Gamma_N} - \\
+        &- 2 \pares{\lambda \grad{\vp}, \grad{\theta_2}}
+        - \pares{\lambda \abs{\vp_1} \vp, \theta_1}_{\Gamma_N} 
+        + \pares{\lambda \grad{\vp_2}, \grad{\theta}} + \\
+        &+ 2 \pares{\lambda \abs{\vp_1} \vp_1, \theta}_{\Gamma_N}
+        - \pares{\lambda \grad{\vp_1}, \grad{\theta}} - \\
+        &- \pares{\lambda 
+            \pares{
+                \vp_2 \pares{
+                    \abs{\vp_1} - \abs{\vp_2}
+                }
+            } + \abs{\vp_1} \vp, \theta_2
+        }_{\Gamma_N}.
+    \end{split}
+\end{equation}
+
+Сформулируем полученный результат в виде следующей теоремы.
+
+\theorem{
+    \label{thref31}
+    Пусть в дополнение к условиям (\ref{rconds1}) и \ref{jconds1} $K \subset H^s_{\lambda_0} (\Omega) \times H^1 (\Omega)$ -- ограниченное множество, и пусть пары $\pares{\vp_1, u_1} \in H^1 (\Omega) \times K$ и $\pares{\vp_2, u_2} \in H^1(\Omega) \times K$ являются решениями соответственно задач (\ref{3.1}) при $f = f_1 \in L^2 (\Omega)$ и (\ref{func}) при $f = f_2 \in  L^2 (\Omega)$. Пусть далее  $\pares{\theta_i, \zeta_i} \in {\cT} \times H^{1/2}(\Gamma_D)$ -- множители Лагранжа, отвечающие решениям $\pares{\vp_i, u_i}, i=1, 2$, и пусть функционалы $I$ и $\tilde I$ непрерывно дифференцируемы относительно $\vp$. Тогда для разностей $\vp, \lambda, \beta, \theta$ и $f$, введенных в (\ref{sign}), справедлива оценка (\ref{varphiest}) и выполняется неравенство (\ref{thetaminus3}). 
+}
